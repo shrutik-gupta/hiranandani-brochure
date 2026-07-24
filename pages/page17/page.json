@@ -34,7 +34,7 @@
               "style": { "font": "sans", "size": 6, "align": "left", "color": "#7A6145" } },
             { "type": "rule", "x": 0, "y": 88, "w": 7, "thickness": 0.18, "color": "#7A6145" },
             { "type": "text", "x": 0, "y": 90, "w": 80, "text": "Swimming Pool",
-              "style": { "font": "sans", "size": 5.4, "align": "left", "color": "#2B2B26" } }
+              "style": { "font": "serif", "size": 5.4, "align": "left", "color": "#2B2B26" } }
           ]
         },
         {
@@ -44,7 +44,7 @@
               "style": { "font": "sans", "size": 6, "align": "left", "color": "#7A6145" } },
             { "type": "rule", "x": 0, "y": 88, "w": 7, "thickness": 0.18, "color": "#7A6145" },
             { "type": "text", "x": 0, "y": 90, "w": 80, "text": "Sprint Track",
-              "style": { "font": "sans", "size": 5.4, "align": "left", "color": "#2B2B26" } }
+              "style": { "font": "serif", "size": 5.4, "align": "left", "color": "#2B2B26" } }
           ]
         },
         {
@@ -54,7 +54,7 @@
               "style": { "font": "sans", "size": 6, "align": "left", "color": "#7A6145" } },
             { "type": "rule", "x": 0, "y": 88, "w": 7, "thickness": 0.18, "color": "#7A6145" },
             { "type": "text", "x": 0, "y": 90, "w": 80, "text": "Yoga & Aerobic Deck",
-              "style": { "font": "sans", "size": 5.4, "align": "left", "color": "#2B2B26" } }
+              "style": { "font": "serif", "size": 5.4, "align": "left", "color": "#2B2B26" } }
           ]
         },
         {
@@ -64,7 +64,7 @@
               "style": { "font": "sans", "size": 6, "align": "left", "color": "#7A6145" } },
             { "type": "rule", "x": 0, "y": 88, "w": 7, "thickness": 0.18, "color": "#7A6145" },
             { "type": "text", "x": 0, "y": 90, "w": 80, "text": "Golf Putting",
-              "style": { "font": "sans", "size": 5.4, "align": "left", "color": "#2B2B26" } }
+              "style": { "font": "serif", "size": 5.4, "align": "left", "color": "#2B2B26" } }
           ]
         },
         {
@@ -74,7 +74,7 @@
               "style": { "font": "sans", "size": 6, "align": "left", "color": "#7A6145" } },
             { "type": "rule", "x": 0, "y": 88, "w": 7, "thickness": 0.18, "color": "#7A6145" },
             { "type": "text", "x": 0, "y": 90, "w": 80, "text": "Cycle Track",
-              "style": { "font": "sans", "size": 5.4, "align": "left", "color": "#2B2B26" } }
+              "style": { "font": "serif", "size": 5.4, "align": "left", "color": "#2B2B26" } }
           ]
         }
       ]
