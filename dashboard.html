@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Brochure Analytics — The Arena</title>
+<style>
+  :root{
+    --ink:#0B1613; --pine:#12261F; --gold:#C9A15C; --gold-soft:#E4CB94;
+    --ivory:#F2EDE1; --muted:#9DB0A6; --line:rgba(228,203,148,.22);
+    --serif:'CanelaDeck', Georgia, serif;
+    --sans:'Roboto-Light', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+  @font-face{font-family:'CanelaDeck'; src:url('fonts/CanelaDeck.otf') format('opentype'); font-display:swap;}
+  @font-face{font-family:'Roboto-Light'; src:url('fonts/Roboto-Light.ttf') format('truetype'); font-display:swap;}
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{margin:0; display:flex; flex-direction:column; font-family:var(--sans); color:var(--ivory);
+    background:radial-gradient(120% 90% at 50% -10%, #1B3A30 0%, transparent 55%),
+               linear-gradient(180deg, var(--pine), var(--ink) 60%);}
+
+  header{display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+    padding:14px clamp(16px,4vw,36px); border-bottom:1px solid var(--line);}
+  header .sub{font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--gold);}
+  header h1{font-family:var(--serif); font-weight:500; font-size:21px; margin:2px 0 0; letter-spacing:.02em;}
+  .spacer{flex:1;}
+  .btn{font-family:var(--sans); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ivory); background:rgba(22,48,38,.6); border:1px solid var(--line);
+    border-radius:999px; padding:9px 16px; cursor:pointer; text-decoration:none;
+    display:inline-flex; align-items:center; gap:7px; transition:border-color .2s,color .2s;}
+  .btn:hover{border-color:var(--gold); color:var(--gold-soft);}
+  .btn svg{width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:1.7;
+    stroke-linecap:round; stroke-linejoin:round;}
+
+  main{flex:1; min-height:0; padding:clamp(10px,2vw,20px); display:flex;}
+  .frame{flex:1; position:relative; border:1px solid var(--line); border-radius:12px;
+    overflow:hidden; background:#0f1d18;}
+  .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+
+  /* shown underneath the iframe; the report covers it once it loads */
+  .fallback{position:absolute; inset:0; display:flex; flex-direction:column; gap:10px;
+    align-items:center; justify-content:center; text-align:center; padding:30px; z-index:0;}
+  .fallback h2{font-family:var(--serif); font-weight:500; font-size:20px; margin:0;}
+  .fallback p{color:var(--muted); font-size:13px; max-width:420px; line-height:1.6; margin:0;}
+  .frame iframe{z-index:1; background:transparent;}
+
+  footer{padding:12px clamp(16px,4vw,36px) 20px; color:var(--muted); font-size:11px; line-height:1.6;}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="sub">Hiranandani Fortune City</div>
+    <h1>Brochure Analytics</h1>
+  </div>
+  <div class="spacer"></div>
+  <a class="btn" id="openFull" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg>
+    Open in Looker Studio
+  </a>
+  <a class="btn" href="index.html">
+    <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+    Back to brochure
+  </a>
+</header>
+
+<main>
+  <div class="frame">
+    <div class="fallback">
+      <h2>Loading the report…</h2>
+      <p>If this stays on screen, you're not signed in to a Google account with
+         access to this report. Use “Open in Looker Studio” above, sign in, then
+         come back and refresh.</p>
+    </div>
+    <iframe id="report"
+      width="100%" height="100%" 
+      src="https://datastudio.google.com/embed/reporting/403ce078-f7be-473a-be0a-e466e445550e/page/Eyi4F" 
+      frameborder="0" style="border:0" allowfullscreen 
+      sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+  </div>
+</main>
+
+<footer>
+  Access is controlled in Looker Studio — only Google accounts added to the report can see it.
+  GA4 standard reports lag 24–48&nbsp;h; Realtime is instant in the GA console.
+</footer>
+
+<script>
+  var src = document.getElementById('report').getAttribute('src') || '';
+  document.getElementById('openFull').href = src.replace('/embed/reporting/', '/reporting/');
+</script>
+</body>
+</html>
