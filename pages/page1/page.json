@@ -1,0 +1,50 @@
+{
+  "title": "Cover",
+  "backgroundColor": "#0B1613",
+  "background": { "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page1/bg.png", "fit": "cover" },
+  "layers": [
+    {
+      "type": "image",
+      "x": 72, "y": 2, "w": 24,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page1/logo.png",
+      "fit": "contain",
+      "alt": "Hiranandani Communities"
+    },
+    {
+      "type": "image",
+      "x": 5.5, "y": 75, "w": 36,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page1/the_arena.png",
+      "fit": "contain",
+      "alt": "The Arena"
+    },
+    {
+      "type": "text",
+      "x": 5.5, "y": 85, "w": 89,
+      "text": "Life’s Best Played Here",
+      "style": {
+        "font": "serif",
+        "size": 7,
+        "align": "left",
+        "color": "#F2EDE1"
+      }
+    },
+    {
+      "type": "image",
+      "x": 5.5, "y": 92.3, "w": 10.5,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page1/underline.png",
+      "fit": "contain"
+    },
+    {
+      "type": "text",
+      "x": 5.5, "y": 94.3, "w": 89,
+      "text": "HIRANANDANI FORTUNE CITY",
+      "style": {
+        "size": 2.3,
+        "align": "left",
+        "color": "#FFFFFF",
+        "letterSpacing": 0.22,
+        "uppercase": true
+      }
+    }
+  ]
+}

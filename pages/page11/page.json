@@ -1,0 +1,15 @@
+{
+  "title": "Introducing The Arena",
+  "backgroundColor": "#0B1613",
+  "layers": [
+    {
+      "type": "video",
+      "mode": "inline",
+      "x": 0, "y": 0, "w": 100, "h": 100,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page11/video.mp4",
+      "poster": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page11/thumbnail.png",
+      "autoplay": true,
+      "loop": true
+    }
+  ]
+}

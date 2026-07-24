@@ -1,0 +1,244 @@
+{
+  "title": "Homes Designed Around The Way You Live",
+  "backgroundColor": "#F4EFE4",
+  "layers": [
+    {
+      "type": "text",
+      "x": 4,
+      "y": 2,
+      "w": 60,
+      "text": "20 | THE ARENA - RESIDENCES",
+      "style": { "size": 1.6, "color": "#6F4500", "letterSpacing": 0, "uppercase": true, "font": "page" }
+    },
+    {
+      "type": "carousel",
+      "x": 2,
+      "y": 6,
+      "w": 96,
+      "h": 88,
+      "interval": 3000,
+      "transition": "fade",
+      "arrows": false,
+      "arrowY": 25,
+      "arrowColor": "#FFFFFF",
+      "dots": false,
+      "autoplay": true,
+      "slides": [
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 48,
+              "y": 0,
+              "w": 52,
+              "h": 48,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/2bhk_Guest.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "image",
+              "x": 0,
+              "y": 50,
+              "w": 100,
+              "h": 45,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/2bhk_Living.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            }
+          ]
+        },
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 48,
+              "y": 0,
+              "w": 52,
+              "h": 48,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/2bhk_Master.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "image",
+              "x": 0,
+              "y": 50,
+              "w": 100,
+              "h": 45,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/3bhk_Balcony.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            }
+          ]
+        },
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 48,
+              "y": 0,
+              "w": 52,
+              "h": 48,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/3bhk_Guest.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "image",
+              "x": 0,
+              "y": 50,
+              "w": 100,
+              "h": 45,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/3bhk_Kids.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            }
+          ]
+        },
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 48,
+              "y": 0,
+              "w": 52,
+              "h": 48,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/3bhk_Kitchen.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "image",
+              "x": 0,
+              "y": 50,
+              "w": 100,
+              "h": 45,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/3bhk_Living.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            }
+          ]
+        },
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 48,
+              "y": 0,
+              "w": 52,
+              "h": 48,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/3bhk_Master.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "image",
+              "x": 0,
+              "y": 50,
+              "w": 100,
+              "h": 45,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/4bhk_Bathroom.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            }
+          ]
+        },
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 48,
+              "y": 0,
+              "w": 52,
+              "h": 48,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/4bhk_Dining.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "image",
+              "x": 0,
+              "y": 50,
+              "w": 100,
+              "h": 45,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/4bhk_Guest.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            }
+          ]
+        },
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 48,
+              "y": 0,
+              "w": 52,
+              "h": 48,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/4bhk_Kids.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "image",
+              "x": 0,
+              "y": 50,
+              "w": 100,
+              "h": 45,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/4bhk_Living.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            }
+          ]
+        },
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 48,
+              "y": 0,
+              "w": 52,
+              "h": 48,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/4bhk_Master.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "image",
+              "x": 0,
+              "y": 50,
+              "w": 100,
+              "h": 45,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/4bhk_Study.jpg",
+              "fit": "cover",
+              "radius": "6px"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "x": 4,
+      "y": 20,
+      "w": 44,
+      "html": "<div style=\"font-family:var(--serif);text-align:left;line-height:1.08;font-size:5.2cqw\"><span style=\"color:#2B2B26\">Homes Designed</span><br><span style=\"color:#2B2B26\">Around The </span><span style=\"color:#7A6145\">Way</span><br><span style=\"color:#7A6145\">You Live</span></div>"
+    },
+    {
+      "type": "image",
+      "x": 4,
+      "y": 34,
+      "w": 16,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page20/diamond_underline.png",
+      "fit": "contain"
+    },
+    {
+      "type": "html",
+      "x": 6,
+      "y": 91,
+      "w": 88,
+      "html": "<div style=\"font-family:var(--serif);text-align:center;font-size:2.4cqw;color:#2B2B26;line-height:1.5\">Spacious <span style=\"color:#7A6145\">2, 3 &amp; 4 BHK residences</span> where intelligent planning, natural light and everyday comfort come together beautifully.</div>"
+    }
+  ]
+}

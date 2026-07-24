@@ -1,0 +1,80 @@
+{
+  "title": "A Legacy Built On Trust",
+  "backgroundColor": "#F4EFE4",
+  "layers": [
+    {
+      "type": "text",
+      "x": 4, "y": 2, "w": 60,
+      "text": "21 | WHY HIRANANDANI",
+      "style": { "size": 1.6, "color": "#6F4500", "letterSpacing": 0, "uppercase": true, "font": "page" }
+    },
+    {
+      "type": "video",
+      "mode": "inline",
+      "x": 3, "y": 6, "w": 94, "h": 31.5,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page21/video.mp4",
+      "poster": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page21/thumbnail.png",
+      "autoplay": true,
+      "controls": true,
+      "loop": true
+    },
+
+    { "type": "image", "x": 3, "y": 39.5, "w": 45.5, "h": 25, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page21/powai.png", "fit": "cover", "radius": "6px" },
+    { "type": "html", "x": 3, "y": 39.5, "w": 45.5, "h": 25, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 74%,rgba(0,0,0,0.5) 100%)\"></div>" },
+    { "type": "text", "x": 3, "y": 60, "w": 43.5, "text": "Powai",
+      "style": { "size": 2.3, "align": "right", "color": "#FFFFFF", "shadow": true } },
+
+    { "type": "image", "x": 51.5, "y": 39.5, "w": 45.5, "h": 25, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page21/thane.png", "fit": "cover", "radius": "6px" },
+    { "type": "html", "x": 51.5, "y": 39.5, "w": 45.5, "h": 25, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 74%,rgba(0,0,0,0.5) 100%)\"></div>" },
+    { "type": "text", "x": 51.5, "y": 60, "w": 43.5, "text": "Thane",
+      "style": { "size": 2.3, "align": "right", "color": "#FFFFFF", "shadow": true } },
+
+    {
+      "type": "html",
+      "x": 0, "y": 67, "w": 100,
+      "html": "<div style=\"font-family:var(--serif);text-align:center;font-size:6.6cqw;line-height:1.1\"><span style=\"color:#2B2B26\">A Legacy Built On </span><span style=\"color:#7A6145\">Trust</span></div>"
+    },
+    {
+      "type": "image",
+      "x": 44, "y": 73.5, "w": 12,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page21/diamond_underline.png", "fit": "contain"
+    },
+    {
+      "type": "text",
+      "x": 8, "y": 75.5, "w": 84,
+      "text": "For over four decades, the Hiranandani name has stood for thoughtful planning, exceptional quality and commuinities that enrich lives.",
+      "style": { "size": 2.3, "align": "center", "color": "#6E6E63", "lineHeight": 1.5 }
+    },
+    {
+      "type": "text",
+      "x": 8, "y": 82, "w": 84,
+      "text": "A legacy built on trust.\nA promise delivered, every single time.",
+      "style": { "size": 2.3, "align": "center", "color": "#6E6E63", "lineHeight": 1.5 }
+    },
+
+    {
+      "type": "group",
+      "x": 6, "y": 90, "w": 88, "h": 8,
+      "children": [
+        { "type": "text", "x": 0, "y": 0, "w": 30, "text": "45+",
+          "style": { "font": "serif", "size": 6, "align": "center", "color": "#7A6145" } },
+        { "type": "text", "x": 0, "y": 62, "w": 30, "text": "YEARS LEGACY",
+          "style": { "size": 1.5, "align": "center", "color": "#6E6E63", "letterSpacing": 0.14, "uppercase": true } },
+
+        { "type": "rule", "x": 33, "y": 8, "w": 0.12, "h": 78, "color": "#C9B79A" },
+
+        { "type": "text", "x": 35, "y": 0, "w": 30, "text": "22,000+",
+          "style": { "font": "serif", "size": 6, "align": "center", "color": "#7A6145" } },
+        { "type": "text", "x": 35, "y": 62, "w": 30, "text": "FAMILIES",
+          "style": { "size": 1.5, "align": "center", "color": "#6E6E63", "letterSpacing": 0.14, "uppercase": true } },
+
+        { "type": "rule", "x": 67, "y": 8, "w": 0.12, "h": 78, "color": "#C9B79A" },
+
+        { "type": "text", "x": 70, "y": 0, "w": 30, "text": "100+",
+          "style": { "font": "serif", "size": 6, "align": "center", "color": "#7A6145" } },
+        { "type": "text", "x": 70, "y": 62, "w": 30, "text": "AWARDS",
+          "style": { "size": 1.5, "align": "center", "color": "#6E6E63", "letterSpacing": 0.14, "uppercase": true } }
+      ]
+    }
+  ]
+}

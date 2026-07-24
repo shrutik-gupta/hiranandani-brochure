@@ -1,0 +1,38 @@
+{
+  "title": "Club Royale",
+  "backgroundColor": "#F4EFE4",
+  "layers": [
+    {
+      "type": "text",
+      "x": 4, "y": 2, "w": 60,
+      "text": "08 | CLUB ROYALE",
+      "style": { "size": 1.6, "color": "#6F4500", "letterSpacing": 0, "uppercase": true, "font": "page" }
+    },
+    {
+      "type": "html",
+      "x": 0, "y": 7.5, "w": 100,
+      "html": "<div style=\"font-family:var(--serif);text-align:center;line-height:1.1\"><div style=\"font-size:7.5cqw;color:#7E5F40\">Club Royale</div><div style=\"font-size:4.2cqw;color:#2B2B26;margin-top:0.2em\">The Biggest Ever Clubhouse In Mumbai 3.0</div></div>"
+    },
+    {
+      "type": "image",
+      "x": 42, "y": 19, "w": 16,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page8/diamond_underline.png", "fit": "contain"
+    },
+    {
+      "type": "video",
+      "mode": "inline",
+      "x": 3, "y": 23, "w": 94, "h": 68,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page8/video.mp4",
+      "poster": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page8/thumbnail.png",
+      "autoplay": true,
+      "controls": true,
+      "loop": true
+    },
+    {
+      "type": "text",
+      "x": 0, "y": 93, "w": 100,
+      "text": "90,000+ Sq. Ft. of Curated Lifestyle Experiences",
+      "style": { "font": "serif", "size": 2.8, "align": "center", "color": "#6F4500" }
+    }
+  ]
+}

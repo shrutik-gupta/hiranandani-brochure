@@ -1,0 +1,70 @@
+{
+  "title": "Club Royale — Amenities Gallery",
+  "backgroundColor": "#F4EFE4",
+  "layers": [
+    {
+      "type": "text",
+      "x": 4, "y": 2, "w": 60,
+      "text": "10 | CLUB ROYALE - AMENITIES",
+      "style": { "size": 1.6, "color": "#6F4500", "letterSpacing": 0, "uppercase": true, "font": "page" }
+    },
+    {
+      "type": "carousel",
+      "x": 4, "y": 5.5, "w": 92, "h": 82.5,
+      "interval": 3000,
+      "arrows": false,
+      "dots": false,
+      "transition": "fade",
+      "autoplay": true,
+      "slides": [
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 52.5, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page10/children_play.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 0, "y": 0, "w": 100, "h": 52.5, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 65%,rgba(0,0,0,0.55) 100%)\"></div>" },
+            { "type": "text", "x": 30, "y": 49, "w": 67,
+              "text": "Kids Play Area",
+              "style": { "size": 2.4, "align": "right", "color": "#FFFFFF", "shadow": true } },
+
+            { "type": "image", "x": 0, "y": 54, "w": 49, "h": 45, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page10/squash.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 0, "y": 54, "w": 49, "h": 45, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>" },
+            { "type": "text", "x": 2, "y": 95, "w": 45,
+              "text": "Squash Court",
+              "style": { "size": 2.4, "align": "right", "color": "#FFFFFF", "shadow": true } },
+
+            { "type": "image", "x": 50.5, "y": 54, "w": 49.5, "h": 45, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page10/open_air.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 50.5, "y": 54, "w": 49.5, "h": 45, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>" },
+            { "type": "text", "x": 53, "y": 95, "w": 45,
+              "text": "Open Air Restaurant",
+              "style": { "size": 2.4, "align": "right", "color": "#FFFFFF", "shadow": true } }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 52.5, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page10/Mini_theatre.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 0, "y": 0, "w": 100, "h": 52.5, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 65%,rgba(0,0,0,0.55) 100%)\"></div>" },
+            { "type": "text", "x": 30, "y": 49, "w": 67,
+              "text": "Mini Theatre",
+              "style": { "size": 2.4, "align": "right", "color": "#FFFFFF", "shadow": true } },
+
+            { "type": "image", "x": 0, "y": 54, "w": 49, "h": 45, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page10/business.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 0, "y": 54, "w": 49, "h": 45, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>" },
+            { "type": "text", "x": 2, "y": 95, "w": 45,
+              "text": "Business Centre",
+              "style": { "size": 2.4, "align": "right", "color": "#FFFFFF", "shadow": true } },
+
+            { "type": "image", "x": 50.5, "y": 54, "w": 49.5, "h": 45, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page10/meditation.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 50.5, "y": 54, "w": 49.5, "h": 45, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>" },
+            { "type": "text", "x": 53, "y": 95, "w": 45,
+              "text": "Meditation Den",
+              "style": { "size": 2.4, "align": "right", "color": "#FFFFFF", "shadow": true } }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "x": 4, "y": 89.5, "w": 92,
+      "html": "<div style=\"font-family:var(--sans);color:#000;font-size:1.9cqw;line-height:1;display:flex;justify-content:space-between\"><table style=\"border-collapse:collapse\"><tr><td style=\"color:#7A6145;padding:0.45em 0.4em 0.45em 0;white-space:nowrap\">09&nbsp;&nbsp;|</td><td style=\"padding:0.45em 0;white-space:nowrap\">Kids Play Area</td></tr><tr><td style=\"color:#7A6145;padding:0.45em 0.4em 0.45em 0\">10&nbsp;&nbsp;|</td><td style=\"padding:0.45em 0;white-space:nowrap\">Mini Theatre</td></tr></table><table style=\"border-collapse:collapse\"><tr><td style=\"color:#7A6145;padding:0.45em 0.4em 0.45em 0;white-space:nowrap\">11&nbsp;&nbsp;|</td><td style=\"padding:0.45em 0;white-space:nowrap\">Squash Court</td></tr><tr><td style=\"color:#7A6145;padding:0.45em 0.4em 0.45em 0\">12&nbsp;&nbsp;|</td><td style=\"padding:0.45em 0;white-space:nowrap\">Meditation Den</td></tr></table><table style=\"border-collapse:collapse\"><tr><td style=\"color:#7A6145;padding:0.45em 0.4em 0.45em 0;white-space:nowrap\">13&nbsp;&nbsp;|</td><td style=\"padding:0.45em 0;white-space:nowrap\">Open Air Restaurant</td></tr><tr><td style=\"color:#7A6145;padding:0.45em 0.4em 0.45em 0\">14&nbsp;&nbsp;|</td><td style=\"padding:0.45em 0;white-space:nowrap\">Business Centre</td></tr></table></div>"
+    }
+  ]
+}

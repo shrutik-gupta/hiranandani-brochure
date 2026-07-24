@@ -1,0 +1,88 @@
+{
+  "title": "Amenities Curated For Wellness",
+  "backgroundColor": "#F4EFE4",
+  "layers": [
+    {
+      "type": "text",
+      "x": 4, "y": 2, "w": 60,
+      "text": "17 | THE ARENA - AMENITIES",
+      "style": { "size": 1.6, "color": "#6F4500", "letterSpacing": 0, "uppercase": true, "font": "page" }
+    },
+    {
+      "type": "html",
+      "x": 4, "y": 7, "w": 70,
+      "html": "<div style=\"font-family:var(--serif);text-align:left;line-height:1.05\"><div style=\"font-size:6.4cqw;color:#2B2B26\">Amenities Curated</div><div style=\"font-size:6.4cqw\"><span style=\"color:#2B2B26\">For </span><span style=\"color:#7A6145\">Wellness</span></div></div>"
+    },
+    {
+      "type": "rule",
+      "x": 4, "y": 19, "w": 92, "thickness": 0.2, "color": "#CFC3AE"
+    },
+    {
+      "type": "carousel",
+      "x": 4, "y": 22, "w": 92, "h": 73,
+      "transition": "scroller",
+      "peek": 6,
+      "peekSide": "right",
+      "gap": 2,
+      "arrows": false,
+      "dots": false,
+      "slides": [
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 74, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page17/pool.png", "fit": "cover", "radius": "6px" },
+            { "type": "text", "x": 0, "y": 80, "w": 30, "text": "01",
+              "style": { "font": "sans", "size": 6, "align": "left", "color": "#7A6145" } },
+            { "type": "rule", "x": 0, "y": 88, "w": 7, "thickness": 0.18, "color": "#7A6145" },
+            { "type": "text", "x": 0, "y": 90, "w": 80, "text": "Swimming Pool",
+              "style": { "font": "sans", "size": 5.4, "align": "left", "color": "#2B2B26" } }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 74, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page17/sprint.png", "fit": "cover", "radius": "6px" },
+            { "type": "text", "x": 0, "y": 80, "w": 30, "text": "02",
+              "style": { "font": "sans", "size": 6, "align": "left", "color": "#7A6145" } },
+            { "type": "rule", "x": 0, "y": 88, "w": 7, "thickness": 0.18, "color": "#7A6145" },
+            { "type": "text", "x": 0, "y": 90, "w": 80, "text": "Sprint Track",
+              "style": { "font": "sans", "size": 5.4, "align": "left", "color": "#2B2B26" } }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 74, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page17/yoga.png", "fit": "cover", "radius": "6px" },
+            { "type": "text", "x": 0, "y": 80, "w": 30, "text": "03",
+              "style": { "font": "sans", "size": 6, "align": "left", "color": "#7A6145" } },
+            { "type": "rule", "x": 0, "y": 88, "w": 7, "thickness": 0.18, "color": "#7A6145" },
+            { "type": "text", "x": 0, "y": 90, "w": 80, "text": "Yoga & Aerobic Deck",
+              "style": { "font": "sans", "size": 5.4, "align": "left", "color": "#2B2B26" } }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 74, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page17/golf.png", "fit": "cover", "radius": "6px" },
+            { "type": "text", "x": 0, "y": 80, "w": 30, "text": "04",
+              "style": { "font": "sans", "size": 6, "align": "left", "color": "#7A6145" } },
+            { "type": "rule", "x": 0, "y": 88, "w": 7, "thickness": 0.18, "color": "#7A6145" },
+            { "type": "text", "x": 0, "y": 90, "w": 80, "text": "Golf Putting",
+              "style": { "font": "sans", "size": 5.4, "align": "left", "color": "#2B2B26" } }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 74, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page17/cycle.png", "fit": "cover", "radius": "6px" },
+            { "type": "text", "x": 0, "y": 80, "w": 30, "text": "05",
+              "style": { "font": "sans", "size": 6, "align": "left", "color": "#7A6145" } },
+            { "type": "rule", "x": 0, "y": 88, "w": 7, "thickness": 0.18, "color": "#7A6145" },
+            { "type": "text", "x": 0, "y": 90, "w": 80, "text": "Cycle Track",
+              "style": { "font": "sans", "size": 5.4, "align": "left", "color": "#2B2B26" } }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "x": 4, "y": 96, "w": 92,
+      "html": "<div style=\"font-family:var(--sans);font-size:1.75cqw;color:#2B2B26;display:flex;justify-content:space-between;align-items:center\"><span><span style=\"color:#7A6145\">01&nbsp;&nbsp;|</span>&nbsp;&nbsp;Swimming Pool</span><span><span style=\"color:#7A6145\">02&nbsp;&nbsp;|</span>&nbsp;&nbsp;Sprint Track</span><span><span style=\"color:#7A6145\">03&nbsp;&nbsp;|</span>&nbsp;&nbsp;Yoga &amp; Aerobic Deck</span><span><span style=\"color:#7A6145\">04&nbsp;&nbsp;|</span>&nbsp;&nbsp;Golf Putting</span><span><span style=\"color:#7A6145\">05&nbsp;&nbsp;|</span>&nbsp;&nbsp;Cycle Track</span></div>"
+    }
+  ]
+}

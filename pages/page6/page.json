@@ -1,0 +1,65 @@
+{
+  "title": "Life At Hiranandani Fortune City",
+  "backgroundColor": "#F4EFE4",
+  "layers": [
+    {
+      "type": "text",
+      "x": 4, "y": 2, "w": 60,
+      "text": "06 | HIRANANDANI - FORTUNE CITY",
+      "style": { "size": 1.6, "color": "#6F4500", "letterSpacing": 0, "uppercase": true }
+    },
+    {
+      "type": "html",
+      "x": 0, "y": 7.5, "w": 100,
+      "html": "<div style=\"font-family:var(--serif);text-align:center;line-height:1.08\"><div style=\"font-size:7cqw\"><span style=\"color:#2B2B26\">Life At</span> <span style=\"color:#6F4500\">Hiranandani</span></div><div style=\"font-size:7cqw;color:#6F4500\">Fortune City</div></div>"
+    },
+    {
+      "type": "image",
+      "x": 42, "y": 18.75, "w": 16,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/diamond_underline.png", "fit": "contain"
+    },
+    {
+      "type": "text",
+      "x": 14, "y": 20.5, "w": 72,
+      "text": "A thoughtfully created community where every experience feels within reach and every day begins with possibility.",
+      "style": { "size": 2.3, "align": "center", "color": "#000", "lineHeight": 1.5 }
+    },
+    {
+      "type": "carousel",
+      "x": 4, "y": 28, "w": 92, "h": 70,
+      "interval": 3000,
+      "arrows": false,
+      "dots": true,
+      "transition": "fade",
+      "autoplay": true,
+      "slides": [
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 62, "h": 49, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/school.png", "fit": "cover", "radius": "6px" },
+            { "type": "text", "x": 65, "y": 18, "w": 34, "text": "Hiranandani Trust\nSchool",
+              "style": { "font": "serif", "size": 4.0, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
+            { "type": "image", "x": 65, "y": 30, "w": 10, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/underline.png", "fit": "contain" },
+
+            { "type": "image", "x": 0, "y": 51, "w": 62, "h": 49, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/yotta.png", "fit": "cover", "radius": "6px" },
+            { "type": "text", "x": 65, "y": 69, "w": 34, "text": "Yotta Data\nCentre",
+              "style": { "font": "serif", "size": 4.0, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
+            { "type": "image", "x": 65, "y": 81, "w": 10, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/underline.png", "fit": "contain" }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 62, "h": 49, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/retail.png", "fit": "cover", "radius": "6px" },
+            { "type": "text", "x": 65, "y": 18, "w": 34, "text": "Fully Functional\nRetail Space",
+              "style": { "font": "serif", "size": 4.0, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
+            { "type": "image", "x": 65, "y": 30, "w": 10, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/underline.png", "fit": "contain" },
+
+            { "type": "image", "x": 0, "y": 51, "w": 62, "h": 49, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/restaurant.png", "fit": "cover", "radius": "6px" },
+            { "type": "text", "x": 65, "y": 69, "w": 34, "text": "Fully Functional\nRestaurants",
+              "style": { "font": "serif", "size": 4.0, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
+            { "type": "image", "x": 65, "y": 81, "w": 10, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/underline.png", "fit": "contain" }
+          ]
+        }
+      ]
+    }
+  ]
+}

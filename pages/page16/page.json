@@ -1,0 +1,71 @@
+{
+  "title": "World Class Indoor Amenities",
+  "backgroundColor": "#F4EFE4",
+  "layers": [
+    {
+      "type": "text",
+      "x": 4, "y": 2, "w": 60,
+      "text": "16 | THE ARENA - AMENITIES",
+      "style": { "size": 1.6, "color": "#6F4500", "letterSpacing": 0, "uppercase": true, "font": "page" }
+    },
+    {
+      "type": "html",
+      "x": 4, "y": 7, "w": 56,
+      "html": "<div style=\"font-family:var(--serif);text-align:left;line-height:1.05\"><div style=\"font-size:6.4cqw;color:#000\">World Class</div><div style=\"font-size:6.4cqw;color:#7A6145\">Indoor Amenities</div></div>"
+    },
+    {
+      "type": "html",
+      "x": 60, "y": 3, "w": 38,
+      "html": "<div style=\"font-family:var(--sans);font-size:1.8cqw;color:#000;line-height:1.1;border-left:1.5px solid #C9B79A;padding-left:5%\"><table style=\"border-collapse:collapse\"><tr><td style=\"color:#7A6145;padding:0.28em 0.5em 0.28em 0;white-space:nowrap\">01&nbsp;&nbsp;|</td><td style=\"padding:0.28em 0;white-space:nowrap\">Bowling Alley</td></tr><tr><td style=\"color:#7A6145;padding:0.28em 0.5em 0.28em 0\">02&nbsp;&nbsp;|</td><td style=\"padding:0.28em 0;white-space:nowrap\">Boxing Ring</td></tr><tr><td style=\"color:#7A6145;padding:0.28em 0.5em 0.28em 0\">03&nbsp;&nbsp;|</td><td style=\"padding:0.28em 0;white-space:nowrap\">Indoor Games Room</td></tr><tr><td style=\"color:#7A6145;padding:0.28em 0.5em 0.28em 0\">04&nbsp;&nbsp;|</td><td style=\"padding:0.28em 0;white-space:nowrap\">Mini Theatre</td></tr><tr><td style=\"color:#7A6145;padding:0.28em 0.5em 0.28em 0\">05&nbsp;&nbsp;|</td><td style=\"padding:0.28em 0;white-space:nowrap\">Crossfit Gym</td></tr><tr><td style=\"color:#7A6145;padding:0.28em 0.5em 0.28em 0\">06&nbsp;&nbsp;|</td><td style=\"padding:0.28em 0;white-space:nowrap\">E-Sports Room</td></tr></table></div>"
+    },
+    {
+      "type": "carousel",
+      "x": 3, "y": 19, "w": 94, "h": 80,
+      "interval": 3000,
+      "transition": "fade",
+      "arrows": false,
+      "arrowY": 77.5,
+      "arrowColor": "#FFFFFF",
+      "dots": false,
+      "autoplay": true,
+      "slides": [
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 49, "h": 53, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page16/bowling.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 0, "y": 0, "w": 49, "h": 53, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 76%,rgba(0,0,0,0.55) 100%)\"></div>" },
+            { "type": "text", "x": 2, "y": 49, "w": 45, "text": "Bowling Alley",
+              "style": { "size": 2.2, "align": "right", "color": "#FFFFFF", "shadow": true } },
+
+            { "type": "image", "x": 51, "y": 0, "w": 49, "h": 53, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page16/boxing.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 51, "y": 0, "w": 49, "h": 53, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 76%,rgba(0,0,0,0.55) 100%)\"></div>" },
+            { "type": "text", "x": 53, "y": 49, "w": 45, "text": "Boxing Ring",
+              "style": { "size": 2.2, "align": "right", "color": "#FFFFFF", "shadow": true } },
+
+            { "type": "image", "x": 0, "y": 55, "w": 100, "h": 43.5, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page16/indoor.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 0, "y": 55, "w": 100, "h": 43.5, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 80%,rgba(0,0,0,0.55) 100%)\"></div>" },
+            { "type": "text", "x": 40, "y": 94, "w": 58, "text": "Indoor Games Room",
+              "style": { "size": 2.2, "align": "right", "color": "#FFFFFF", "shadow": true } }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 49, "h": 53, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page16/Mini_theatre.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 0, "y": 0, "w": 49, "h": 53, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 76%,rgba(0,0,0,0.55) 100%)\"></div>" },
+            { "type": "text", "x": 2, "y": 49, "w": 45, "text": "Mini Theatre",
+              "style": { "size": 2.2, "align": "right", "color": "#FFFFFF", "shadow": true } },
+
+            { "type": "image", "x": 51, "y": 0, "w": 49, "h": 53, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page16/crossfit.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 51, "y": 0, "w": 49, "h": 53, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 76%,rgba(0,0,0,0.55) 100%)\"></div>" },
+            { "type": "text", "x": 53, "y": 49, "w": 45, "text": "Crossfit Gym",
+              "style": { "size": 2.2, "align": "right", "color": "#FFFFFF", "shadow": true } },
+
+            { "type": "image", "x": 0, "y": 55, "w": 100, "h": 43.5, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page16/esports.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 0, "y": 55, "w": 100, "h": 43.5, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 80%,rgba(0,0,0,0.55) 100%)\"></div>" },
+            { "type": "text", "x": 40, "y": 94, "w": 58, "text": "E-Sports Room",
+              "style": { "size": 2.2, "align": "right", "color": "#FFFFFF", "shadow": true } }
+          ]
+        }
+      ]
+    }
+  ]
+}

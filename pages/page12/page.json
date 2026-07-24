@@ -1,0 +1,41 @@
+{
+  "title": "Development Plan",
+  "backgroundColor": "#F4EFE4",
+  "layers": [
+    {
+      "type": "text",
+      "x": 4, "y": 2, "w": 70,
+      "text": "12 | THE ARENA - DEVELOPMENT PLAN",
+      "style": { "size": 1.6, "color": "#6F4500", "letterSpacing": 0, "uppercase": true, "font": "page" }
+    },
+    {
+      "type": "html",
+      "x": 4, "y": 6, "w": 92,
+      "html": "<div style=\"font-family:var(--serif);text-align:left;line-height:1.05\"><div style=\"font-size:7.6cqw;color:#7A6145\">Development Plan</div><div style=\"font-size:4.2cqw;color:#2B2B26;margin-top:0.15em\">Part Of A Larger Vision</div></div>"
+    },
+    {
+      "type": "image",
+      "x": 4, "y": 17.5, "w": 12,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page12/diamond_underline.png", "fit": "contain"
+    },
+    {
+      "type": "text",
+      "x": 4, "y": 20, "w": 90,
+      "text": "The Arena is thoughtfully positioned within the larger Hiranandani Fortune City ecosystem. Creating access to lifestyle, recreation and future growth.",
+      "style": { "size": 2.2, "align": "left", "color": "#000", "lineHeight": 1.5, "font": "sans" }
+    },
+    {
+      "type": "image",
+      "x": 3, "y": 28.5, "w": 94, "h": 60,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page12/arena_map.png",
+      "fit": "cover",
+      "radius": "6px",
+      "alt": "The Arena development plan — Hiranandani Fortune City"
+    },
+    {
+      "type": "html",
+      "x": 3, "y": 90.5, "w": 94,
+      "html": "<div style=\"font-family:var(--sans);font-size:2.3cqw;color:#000;border:1px solid #C9B79A;border-radius:14px;padding:1.1em 0;display:flex;justify-content:space-around;align-items:center\"><span>Arcadia</span><span>Citadel</span><span>Pavilion</span><span>Athletica</span><span>Greenfield</span><span>Grandstand</span></div>"
+    }
+  ]
+}

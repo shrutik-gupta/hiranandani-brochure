@@ -1,0 +1,360 @@
+{
+  "title": "A World of Experiences Under One",
+  "backgroundColor": "#F4EFE4",
+  "layers": [
+    {
+      "type": "text",
+      "x": 4,
+      "y": 2,
+      "w": 60,
+      "text": "09 | CLUB ROYALE - AMENITIES",
+      "style": { "size": 1.6, "color": "#6F4500", "letterSpacing": 0, "uppercase": true, "font": "page" }
+    },
+    {
+      "type": "html",
+      "x": 4,
+      "y": 7,
+      "w": 52,
+      "html": "<div style=\"font-family:var(--serif);text-align:left;line-height:1.15;font-size:6.6cqw\"><span style=\"color:#2B2B26\">A</span> <span style=\"color:#7A6145\">World of</span><br><span style=\"color:#7A6145\">Experiences</span><br><span style=\"color:#2B2B26\">Under One</span></div>"
+    },
+    {
+      "type": "image",
+      "x": 4,
+      "y": 24.5,
+      "w": 12,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page9/diamond_underline.png",
+      "fit": "contain"
+    },
+    {
+      "type": "text",
+      "x": 4,
+      "y": 27,
+      "w": 50,
+      "text": "Thoughtfully curated spaces designed for every age, every interest and every moment.",
+      "style": {
+        "font": "sans",
+        "size": 2.5,
+        "align": "left",
+        "color": "#2B2B26",
+        "lineHeight": 1.4
+      }
+    },
+    {
+      "type": "html",
+      "x": 57,
+      "y": 8,
+      "w": 40,
+      "html": "<div style=\"font-family:var(--sans);color:#000;font-size:1.9cqw;line-height:0.8;border-left:0.5px solid #C9B79A;padding-left:5%\"><table style=\"border-collapse:collapse\"><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">01&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Half Olympic Size Swimming Pool</td></tr><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">02&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Banquet Hall</td></tr><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">03&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Multi Purpose Hall</td></tr><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">04&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Gymnasium</td></tr><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">05&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Indoor Games</td></tr><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">06&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Yoga Studio</td></tr><tr><td style=\"color:#7A6145;padding:0.85em 0.4em 0.5em\">07&nbsp;&nbsp;|</td><td style=\"padding:0.85em 0 0.5em\">Themed Spa &amp; Massage</td></tr><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">08&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Caf&eacute; &amp; Lounge</td></tr></table></div>"
+    },
+    {
+      "type": "carousel",
+      "x": 4,
+      "y": 34,
+      "w": 92,
+      "h": 30,
+      "interval": 3000,
+      "transition": "slide",
+      "autoplay": true,
+      "arrows": true,
+      "arrowColor": "#FFFFFF",
+      "dots": false,
+      "slides": [
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page9/pool.png",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "html",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>"
+            },
+            {
+              "type": "text",
+              "x": 30,
+              "y": 89,
+              "w": 67,
+              "text": "Half-Olympic Sized Swimming Pool",
+              "style": {
+                "size": 2.5,
+                "align": "right",
+                "color": "#FFFFFF",
+                "shadow": true
+              }
+            }
+          ]
+        },
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page9/multipurpose_hall.png",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "html",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>"
+            },
+            {
+              "type": "text",
+              "x": 30,
+              "y": 89,
+              "w": 67,
+              "text": "Multi Purpose Hall",
+              "style": {
+                "size": 2.5,
+                "align": "right",
+                "color": "#FFFFFF",
+                "shadow": true
+              }
+            }
+          ]
+        },
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page9/indoor_games.png",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "html",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>"
+            },
+            {
+              "type": "text",
+              "x": 30,
+              "y": 89,
+              "w": 67,
+              "text": "Indoor Games",
+              "style": {
+                "size": 2.5,
+                "align": "right",
+                "color": "#FFFFFF",
+                "shadow": true
+              }
+            }
+          ]
+        },
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page9/spa.png",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "html",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>"
+            },
+            {
+              "type": "text",
+              "x": 30,
+              "y": 89,
+              "w": 67,
+              "text": "Themed Spa & Massage",
+              "style": {
+                "size": 2.5,
+                "align": "right",
+                "color": "#FFFFFF",
+                "shadow": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "carousel",
+      "x": 4,
+      "y": 65,
+      "w": 92,
+      "h": 30,
+      "interval": 3500,
+      "transition": "slide",
+      "autoplay": true,
+      "arrows": true,
+      "arrowColor": "#FFFFFF",
+      "dots": false,
+      "slides": [
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page9/banquet.png",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "html",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>"
+            },
+            {
+              "type": "text",
+              "x": 30,
+              "y": 89,
+              "w": 67,
+              "text": "Banquet Hall",
+              "style": {
+                "size": 2.5,
+                "align": "right",
+                "color": "#FFFFFF",
+                "shadow": true
+              }
+            }
+          ]
+        },
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page9/gym.png",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "html",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>"
+            },
+            {
+              "type": "text",
+              "x": 30,
+              "y": 89,
+              "w": 67,
+              "text": "Gymnasium",
+              "style": {
+                "size": 2.5,
+                "align": "right",
+                "color": "#FFFFFF",
+                "shadow": true
+              }
+            }
+          ]
+        },
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page9/yoga_studio.png",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "html",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>"
+            },
+            {
+              "type": "text",
+              "x": 30,
+              "y": 89,
+              "w": 67,
+              "text": "Yoga Studio",
+              "style": {
+                "size": 2.5,
+                "align": "right",
+                "color": "#FFFFFF",
+                "shadow": true
+              }
+            }
+          ]
+        },
+        {
+          "layers": [
+            {
+              "type": "image",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page9/cafe.png",
+              "fit": "cover",
+              "radius": "6px"
+            },
+            {
+              "type": "html",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>"
+            },
+            {
+              "type": "text",
+              "x": 30,
+              "y": 89,
+              "w": 67,
+              "text": "Café & Lounge",
+              "style": {
+                "size": 2.5,
+                "align": "right",
+                "color": "#FFFFFF",
+                "shadow": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

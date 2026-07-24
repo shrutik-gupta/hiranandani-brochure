@@ -1,0 +1,68 @@
+{
+  "title": "Leisure Spaces For All Generations",
+  "backgroundColor": "#F4EFE4",
+  "layers": [
+    {
+      "type": "text",
+      "x": 4, "y": 2, "w": 60,
+      "text": "18 | THE ARENA - AMENITIES",
+      "style": { "size": 1.6, "color": "#6F4500", "letterSpacing": 0, "uppercase": true, "font": "page" }
+    },
+    {
+      "type": "carousel",
+      "x": 3, "y": 6, "w": 94, "h": 47,
+      "interval": 3000,
+      "transition": "slide",
+      "arrows": true,
+      "arrowColor": "#FFFFFF",
+      "dots": false,
+      "autoplay": true,
+      "slides": [
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page18/walk.png", "fit": "cover", "radius": "6px" }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page18/pool.png", "fit": "cover", "radius": "6px" }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page18/wellness.png", "fit": "cover", "radius": "6px" }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page18/pool1.png", "fit": "cover", "radius": "6px" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "x": 3, "y": 55.5, "w": 45, "h": 41,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page18/play.png",
+      "fit": "cover",
+      "radius": "6px",
+      "alt": "Leisure spaces"
+    },
+    {
+      "type": "html",
+      "x": 52, "y": 57, "w": 45,
+      "html": "<div style=\"font-family:var(--serif);text-align:left;line-height:1.2;font-size:7.4cqw;color:#2B2B26\">Leisure<br>Spaces<br>For All<br>Generations</div>"
+    },
+    {
+      "type": "image",
+      "x": 52, "y": 84, "w": 16,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page18/diamond_underline.png", "fit": "contain"
+    },
+    {
+      "type": "text",
+      "x": 52, "y": 88, "w": 44,
+      "text": "Where Every Moment Becomes A Memory.",
+      "style": { "font": "serif", "size": 2.9, "align": "left", "color": "#2B2B26", "lineHeight": 1.4 }
+    }
+  ]
+}

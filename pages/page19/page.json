@@ -1,0 +1,51 @@
+{
+  "title": "Architecture That Elevates Everyday Living",
+  "backgroundColor": "#F4EFE4",
+  "layers": [
+    {
+      "type": "text",
+      "x": 4,
+      "y": 2,
+      "w": 60,
+      "text": "19 | THE ARENA - EXTERIOR",
+      "style": { "size": 1.6, "color": "#6F4500", "letterSpacing": 0, "uppercase": true, "font": "page" }
+    },
+    {
+      "type": "html",
+      "x": 3,
+      "y": 6,
+      "w": 94,
+      "h": 68,
+      "html": "<img src=\"https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19/building.png\" style=\"width:100%;height:100%;object-fit:cover;object-position:top;border-radius:6px;\" alt=\"The Arena — exterior\" />"
+    },
+    {
+      "type": "html",
+      "x": 4,
+      "y": 77,
+      "w": 92,
+      "html": "<div style=\"font-family:var(--serif);text-align:left;line-height:1.08\"><div style=\"font-size:6.6cqw\"><span style=\"color:#000\">Architecture That </span><span style=\"color:#7A6145\">Elevates</span></div><div style=\"font-size:6.6cqw;color:#000\">Everyday Living</div></div>"
+    },
+    {
+      "type": "image",
+      "x": 4,
+      "y": 89,
+      "w": 12,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19/diamond_underline.png",
+      "fit": "contain"
+    },
+    {
+      "type": "text",
+      "x": 4,
+      "y": 92,
+      "w": 90,
+      "text": "Thoughtfully designed residences surrounded by lush landscapes, where elegance, light and openness come together in perfect harmony.",
+      "style": {
+        "size": 2.2,
+        "align": "left",
+        "color": "#6E6E63",
+        "lineHeight": 1.45,
+        "font": "sans"
+      }
+    }
+  ]
+}
