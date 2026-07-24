@@ -37,12 +37,12 @@
           "layers": [
             { "type": "image", "x": 0, "y": 0, "w": 62, "h": 49, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/school.png", "fit": "cover", "radius": "6px" },
             { "type": "text", "x": 65, "y": 18, "w": 34, "text": "Hiranandani Trust\nSchool",
-              "style": { "font": "serif", "size": 4.0, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
+              "style": { "font": "serif", "size": 3.75, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
             { "type": "image", "x": 65, "y": 30, "w": 10, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/underline.png", "fit": "contain" },
 
             { "type": "image", "x": 0, "y": 51, "w": 62, "h": 49, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/yotta.png", "fit": "cover", "radius": "6px" },
             { "type": "text", "x": 65, "y": 69, "w": 34, "text": "Yotta Data\nCentre",
-              "style": { "font": "serif", "size": 4.0, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
+              "style": { "font": "serif", "size": 3.75, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
             { "type": "image", "x": 65, "y": 81, "w": 10, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/underline.png", "fit": "contain" }
           ]
         },
@@ -50,12 +50,12 @@
           "layers": [
             { "type": "image", "x": 0, "y": 0, "w": 62, "h": 49, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/retail.png", "fit": "cover", "radius": "6px" },
             { "type": "text", "x": 65, "y": 18, "w": 34, "text": "Fully Functional\nRetail Space",
-              "style": { "font": "serif", "size": 4.0, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
+              "style": { "font": "serif", "size": 3.75, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
             { "type": "image", "x": 65, "y": 30, "w": 10, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/underline.png", "fit": "contain" },
 
             { "type": "image", "x": 0, "y": 51, "w": 62, "h": 49, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/restaurant.png", "fit": "cover", "radius": "6px" },
             { "type": "text", "x": 65, "y": 69, "w": 34, "text": "Fully Functional\nRestaurants",
-              "style": { "font": "serif", "size": 4.0, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
+              "style": { "font": "serif", "size": 3.75, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
             { "type": "image", "x": 65, "y": 81, "w": 10, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page6/underline.png", "fit": "contain" }
           ]
         }

@@ -37,12 +37,12 @@
           "layers": [
             { "type": "image", "x": 0, "y": 0, "w": 62, "h": 49, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page7/temple.png", "fit": "cover", "radius": "6px" },
             { "type": "text", "x": 65, "y": 18, "w": 34, "text": "200+ Year Old\nShiva Temple",
-              "style": { "font": "serif", "size": 4.0, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
+              "style": { "font": "serif", "size": 3.75, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
             { "type": "image", "x": 65, "y": 30, "w": 10, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page7/underline.png", "fit": "contain" },
 
             { "type": "image", "x": 0, "y": 51, "w": 62, "h": 49, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page7/hakone.png", "fit": "cover", "radius": "6px" },
             { "type": "text", "x": 65, "y": 69, "w": 34, "text": "Hakone\nGaming Centre",
-              "style": { "font": "serif", "size": 4.0, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
+              "style": { "font": "serif", "size": 3.75, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
             { "type": "image", "x": 65, "y": 81, "w": 10, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page7/underline.png", "fit": "contain" }
           ]
         },
@@ -50,12 +50,12 @@
           "layers": [
             { "type": "image", "x": 0, "y": 0, "w": 62, "h": 49, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page7/ambulance.png", "fit": "cover", "radius": "6px" },
             { "type": "text", "x": 65, "y": 18, "w": 34, "text": "24/7 Ambulance\n& Health Center",
-              "style": { "font": "serif", "size": 4.0, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
+              "style": { "font": "serif", "size": 3.75, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
             { "type": "image", "x": 65, "y": 30, "w": 10, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page7/underline.png", "fit": "contain" },
 
             { "type": "image", "x": 0, "y": 51, "w": 62, "h": 49, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page7/turf.png", "fit": "cover", "radius": "6px" },
             { "type": "text", "x": 65, "y": 69, "w": 34, "text": "Where\nChampions Rise",
-              "style": { "font": "serif", "size": 4.0, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
+              "style": { "font": "serif", "size": 3.75, "align": "left", "color": "#2B2B26", "lineHeight": 1.2 } },
             { "type": "image", "x": 65, "y": 81, "w": 10, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page7/underline.png", "fit": "contain" }
           ]
         }
