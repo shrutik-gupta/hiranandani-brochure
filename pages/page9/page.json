@@ -13,14 +13,14 @@
     {
       "type": "html",
       "x": 4,
-      "y": 7,
+      "y": 7.5,
       "w": 52,
-      "html": "<div style=\"font-family:var(--serif);text-align:left;line-height:1.15;font-size:6.6cqw\"><span style=\"color:#2B2B26\">A</span> <span style=\"color:#7A6145\">World of</span><br><span style=\"color:#7A6145\">Experiences</span><br><span style=\"color:#2B2B26\">Under One</span></div>"
+      "html": "<div style=\"font-family:var(--serif);text-align:left;line-height:1.2;font-size:6.6cqw\"><span style=\"color:#2B2B26\">A</span> <span style=\"color:#7A6145\">World of</span><br><span style=\"color:#7A6145\">Experiences</span><br><span style=\"color:#2B2B26\">Under One</span></div>"
     },
     {
       "type": "image",
       "x": 4,
-      "y": 24.5,
+      "y": 25.5,
       "w": 12,
       "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page9/diamond_underline.png",
       "fit": "contain"
@@ -28,7 +28,7 @@
     {
       "type": "text",
       "x": 4,
-      "y": 27,
+      "y": 28,
       "w": 50,
       "text": "Thoughtfully curated spaces designed for every age, every interest and every moment.",
       "style": {
@@ -42,14 +42,14 @@
     {
       "type": "html",
       "x": 57,
-      "y": 8,
+      "y": 9,
       "w": 40,
       "html": "<div style=\"font-family:var(--sans);color:#000;font-size:1.9cqw;line-height:0.8;border-left:0.5px solid #C9B79A;padding-left:5%\"><table style=\"border-collapse:collapse\"><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">01&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Half Olympic Size Swimming Pool</td></tr><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">02&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Banquet Hall</td></tr><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">03&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Multi Purpose Hall</td></tr><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">04&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Gymnasium</td></tr><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">05&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Indoor Games</td></tr><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">06&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Yoga Studio</td></tr><tr><td style=\"color:#7A6145;padding:0.85em 0.4em 0.5em\">07&nbsp;&nbsp;|</td><td style=\"padding:0.85em 0 0.5em\">Themed Spa &amp; Massage</td></tr><tr><td style=\"color:#7A6145;padding:0.5em 0.4em\">08&nbsp;&nbsp;|</td><td style=\"padding:0.5em 0\">Caf&eacute; &amp; Lounge</td></tr></table></div>"
     },
     {
       "type": "carousel",
       "x": 4,
-      "y": 34,
+      "y": 35,
       "w": 92,
       "h": 30,
       "interval": 3000,
@@ -204,7 +204,7 @@
     {
       "type": "carousel",
       "x": 4,
-      "y": 65,
+      "y": 66,
       "w": 92,
       "h": 30,
       "interval": 3500,
