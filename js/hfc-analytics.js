@@ -10,7 +10,7 @@
    Full report guide: TRACKING.md in the repo root.
    ============================================================ */
 
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';   // ← paste yours here
+const GA_MEASUREMENT_ID = 'G-KSYR113Y2N';   // ← paste yours here
 
 (function () {
   'use strict';
