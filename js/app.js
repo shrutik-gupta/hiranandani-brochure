@@ -545,12 +545,15 @@ const RENDERERS = {
         if (data.success){
           say(l.successMessage || 'Thank you — we will be in touch shortly.', true);
           inputs.forEach(({ el: inp }) => { inp.value = ''; });
+          if (window.HFC) HFC.form('enquiry');                       // analytics: count the lead
         } else {
           say(data.message || 'Something went wrong. Please try again.');
+          if (window.HFC) HFC.event('form_error', { reason: data.message || 'api' });
         }
       } catch (err){
         console.error('Web3Forms error', err);
         say('Network error. Please try again.');
+        if (window.HFC) HFC.event('form_error', { reason: 'network' });
       } finally {
         btn.disabled = false;
         btn.textContent = original;
