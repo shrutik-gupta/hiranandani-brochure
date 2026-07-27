@@ -38,7 +38,7 @@
     --page:'Roboto-Regular', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
   }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
-  html,body{height:100%;}
+  html,body{height:100%; overscroll-behavior:none;}
   body{
     margin:0; font-family:var(--sans); color:var(--ivory);
     background:
@@ -52,7 +52,8 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
   }
 
-  #app{height:100%; display:flex; flex-direction:column;}
+  /* dvh so the mobile browser's collapsing address bar doesn't crop the book */
+  #app{height:100%; height:100dvh; display:flex; flex-direction:column;}
 
   /* ---------- bars ---------- */
   .bar{
@@ -101,8 +102,12 @@
     filter:blur(10px);
   }
   #bookWrap{position:relative; z-index:2; width:100%; height:100%; display:flex; align-items:center; justify-content:center;}
-  /* the whole book glides sideways so a solo cover / back cover sits centred */
-  #book{margin: 0 auto;width:100%; height:100%; transition:transform .8s cubic-bezier(.22,.75,.25,1); will-change:transform;}
+  /* the whole book glides sideways so a solo cover / back cover sits centred.
+     Height stays auto on purpose: the engine's wrapper carries the book's real
+     (aspect-ratio) height, so a stretched #book would pin it to the top of the
+     stage and leave the leftover space below — visible whenever the stage is
+     taller than the book, i.e. in fullscreen. */
+  #book{margin:0 auto; width:100%; align-self:center; transition:transform .8s cubic-bezier(.22,.75,.25,1); will-change:transform;}
   .stf__parent{margin:0 auto;}
   .stf__wrapper{filter:drop-shadow(0 26px 40px rgba(0,0,0,.5));}
 
@@ -110,21 +115,19 @@
   .sheet .pg{width:100%; height:100%; object-fit:cover; display:block; pointer-events:none;}
   .sheet.--hard{background:#0B1613;}
 
-  /* ---------- mobile vertical-scroll mode ---------- */
-  body.scroll-mode #glow, body.scroll-mode .navArrow{display:none;}
-  body.scroll-mode #stage{padding:0;}
-  #scrollView{
-    position:absolute; inset:0; overflow-y:auto; overscroll-behavior:contain;
-    -webkit-overflow-scrolling:touch;
-    padding:10px 12px calc(90px + env(safe-area-inset-bottom));
-    display:flex; flex-direction:column; gap:16px; align-items:center;
-  }
-  .sPage{
-    position:relative; flex:0 0 auto; width:min(600px,100%);
-    aspect-ratio:517/731; border-radius:8px; overflow:hidden;
-    box-shadow:0 12px 34px rgba(0,0,0,.5); background:#0f1d18; scroll-margin-top:10px;
-  }
-  .sPage .pg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; pointer-events:none;}
+  /* ---------- phones: same page-flip, one page at a time ---------- */
+  body.phone-mode #stage{padding:4px 6px 2px;}
+  body.phone-mode #glow{width:min(92vw,520px);}
+  body.phone-mode .stf__wrapper{filter:drop-shadow(0 14px 24px rgba(0,0,0,.55));}
+  /* Single-page mode keeps a virtual left page off-screen, and the HTML
+     renderer — unlike the canvas one — never clips to the visible page. Without
+     this a page turning back swings in over the stage instead of out of the
+     spine, which reads as a slab sliding in rather than a page turning. */
+  body.phone-mode .stf__block{overflow:hidden;}
+  /* phones navigate with the bottom bar + swipe — the mid-page side arrows
+     would only sit on top of the artwork */
+  body.phone-mode .navArrow{display:none;}
+  body.phone-mode #hint{bottom:66px; font-size:10px; letter-spacing:.16em;}
 
   /* side arrows */
   .navArrow{position:absolute; top:50%; transform:translateY(-50%); z-index:20; width:46px; height:46px; border-radius:50%;}
@@ -199,6 +202,24 @@
   #lightbox .lbTitle{position:absolute; left:0; bottom:calc(100% + 10px); font-family:var(--serif); font-size:18px; letter-spacing:.04em; color:var(--ivory);}
   #lbClose{position:absolute; right:0; bottom:calc(100% + 6px);}
 
+  /* ---------- fullscreen ----------
+     iPhone Safari has no Fullscreen API (only <video> can go fullscreen), so
+     the button falls back to a faux fullscreen: our own chrome steps aside and
+     the book takes the whole viewport. */
+  html:fullscreen, html:-webkit-full-screen{width:100%; height:100%; background:var(--ink);}
+  /* height, not inset:0 — on iOS a fixed box sizes to the large viewport and
+     would slide the bottom bar under Safari's toolbar */
+  body.faux-fs #app{position:fixed; left:0; right:0; top:0; height:100dvh; z-index:50;}
+  body.faux-fs .bar.top{display:none;}
+  body.faux-fs #stage{padding-top:max(8px, env(safe-area-inset-top));}
+  body.faux-fs #fsExit{display:inline-flex;}
+  #fsExit{
+    display:none; position:absolute; z-index:26;
+    top:max(8px, env(safe-area-inset-top)); right:10px;
+    height:32px; width:32px; padding:0;
+  }
+  #fsExit svg{width:14px; height:14px;}
+
   /* ---------- hint & loader ---------- */
   #hint{
     position:absolute; left:50%; bottom:74px; transform:translateX(-50%); z-index:25;
@@ -218,6 +239,41 @@
   #loader .lBar i{display:block; height:100%; width:40%; background:var(--gold); animation:load 1.1s ease-in-out infinite;}
   @keyframes load{0%{transform:translateX(-100%);} 100%{transform:translateX(280%);}}
   #loader.done{opacity:0; pointer-events:none;}
+
+  /* --- phone: recede the chrome, let the book lead --- */
+@media (max-width:767px){
+  .bar.bottom{
+    gap:6px;
+    padding:6px 10px max(8px, env(safe-area-inset-bottom));
+    background:linear-gradient(0deg, rgba(11,22,19,.72), rgba(11,22,19,0));
+  }
+  .bar.bottom .btn{
+    height:28px; min-width:28px; padding:0 9px;
+    font-size:9.5px; letter-spacing:.1em;
+    border-color:rgba(228,203,148,.14);
+    background:rgba(22,48,38,.45);
+  }
+  .bar.bottom .btn.icon{width:28px; padding:0;}
+  .bar.bottom .btn svg{width:13px; height:13px;}
+
+  /* CTA: outline instead of a solid gold slab */
+  .btn.cta{
+    background:none; color:var(--gold-soft);
+    border-color:rgba(201,161,92,.55); font-weight:400;
+  }
+
+  #indicator{
+    min-width:52px; font-size:12px; letter-spacing:.04em;
+    color:var(--muted);
+  }
+  #indicator small{display:none;}
+
+  /* top bar shrinks too, or the footer fix just moves the problem up */
+  .bar.top{padding:8px 12px;}
+  .bm-arena-logo, .bm-hiranandani-logo{height:19px;}
+  #fsBtn{height:28px; width:28px;}
+  #fsBtn svg{width:13px; height:13px;}
+}
 
   @media (max-width:767px){
     .pages-note{display:none;}
@@ -335,6 +391,9 @@
       <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
     </button>
     <div id="bookWrap"></div>
+    <button class="btn icon" id="fsExit" aria-label="Exit fullscreen" title="Exit fullscreen">
+      <svg viewBox="0 0 24 24"><path d="M9 4v5H4M20 9h-5V4M4 15h5v5M15 20v-5h5"/></svg>
+    </button>
     <button class="btn icon navArrow next" id="nextArrow" aria-label="Next page">
       <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
     </button>

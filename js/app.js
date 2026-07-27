@@ -11,13 +11,18 @@ let MANIFEST = null;
 let PAGE_DATA = [];
 let CONTACT_PAGE = 1;
 
-let mode = null;
 let pageFlip = null;
-let io = null;
 let currentIndex = 0;
 let busy = false;
 let pending = null;
 let mq = null;
+let phone = false;
+
+/* StPageFlip switches to single-page (portrait) whenever the book element is
+   narrower than 2 × minWidth. Keeping the phone book under this cap is what
+   guarantees one page at a time instead of a squashed two-page spread. */
+const FLIP_MIN_WIDTH = 240;
+const SOLO_MAX_WIDTH = 2 * FLIP_MIN_WIDTH - 20;
 
 const wrap = $('#bookWrap'), indicator = $('#indicator'), hintEl = $('#hint');
 
@@ -301,6 +306,10 @@ const RENDERERS = {
           : ((i % n) + n) % n;
         paint(anim !== false);
       }
+      /* a user drag never wraps — running past the last slide is the signal
+         that the gesture was meant for the page underneath */
+      function showClamped(i){ show(Math.max(0, Math.min(n - 1, i))); }
+      w._canMove = dir => n > 1 && (dir > 0 ? idx < n - 1 : idx > 0);
       function go(i, user){ show(i); if (user) restart(); }
       function restart(){
         clearInterval(timer);
@@ -347,9 +356,9 @@ const RENDERERS = {
         if (track) track.style.transition = 'none';
       });
       w.addEventListener('pointermove', e => {
-        if (!dragging || !track) return;
+        if (!dragging) return;
         dxPct = (e.clientX - startX) / w.offsetWidth * 100;
-        track.style.transform = 'translateX(' + (offsetFor(idx) + dxPct) + '%)';
+        if (track) track.style.transform = 'translateX(' + (offsetFor(idx) + dxPct) + '%)';
       });
       function endDrag(){
         if (!dragging) return;
@@ -359,7 +368,7 @@ const RENDERERS = {
           const extra = Math.abs(dxPct) > step * 0.18 && moved === 0 ? (dxPct < 0 ? 1 : -1) : 0;
           show(idx + moved + extra);
         } else {
-          if (Math.abs(dxPct) > 12) show(idx + (dxPct < 0 ? 1 : -1));
+          if (Math.abs(dxPct) > 12) showClamped(idx + (dxPct < 0 ? 1 : -1));
           else show(idx);
         }
         restart();
@@ -646,10 +655,8 @@ function pauseInlineMedia(){
    crop the bottom. fitBook() caps the book's width so
    pageHeight never exceeds the stage height.
    ============================================================ */
-function fitBook(){
-  if (mode !== 'flip' || !pageFlip) return;
-  const stage = $('#stage'), book = $('#book');
-  if (!book) return;
+function bookWidth(){
+  const stage = $('#stage');
   const sz = MANIFEST.pageSize || { width:517, height:731 };
   const ratio = sz.width / sz.height;
 
@@ -657,10 +664,20 @@ function fitBook(){
   const availH = stage.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) - 10;
   const availW = stage.clientWidth  - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
 
-  const portrait = pageFlip.getOrientation() === 'portrait';
-  const across = portrait ? 1 : 2;
-  const target = Math.max(240 * across, Math.min(availW, availH * ratio * across));
+  /* phones always read one page at a time; on larger screens follow whatever
+     orientation the engine has settled on */
+  const solo = phone || !pageFlip || pageFlip.getOrientation() === 'portrait';
+  const across = solo ? 1 : 2;
+  let target = Math.max(FLIP_MIN_WIDTH * across, Math.min(availW, availH * ratio * across));
+  if (phone) target = Math.min(target, SOLO_MAX_WIDTH, availW);
+  return target;
+}
 
+function fitBook(){
+  if (!pageFlip) return;
+  const book = $('#book');
+  if (!book) return;
+  const target = bookWidth();
   if (Math.abs(parseFloat(book.style.width || 0) - target) > 1){
     book.style.width = target + 'px';
     book.style.margin = '0 auto';
@@ -676,11 +693,16 @@ function buildFlip(){
   const bookEl = $('#book');
   PAGE_DATA.forEach((_, i) => bookEl.appendChild(makeSheet(i, 'sheet')));
 
+  /* size the element before the engine reads it, so phones never flash a
+     two-page spread before fitBook() narrows it down */
+  bookEl.style.width = bookWidth() + 'px';
+  bookEl.style.margin = '0 auto';
+
   const sz = MANIFEST.pageSize || { width:517, height:731 };
   pageFlip = new St.PageFlip(bookEl, {
     width: sz.width, height: sz.height,
     size: 'stretch',
-    minWidth: 240, maxWidth: 1600, minHeight: 320, maxHeight: 2200,
+    minWidth: FLIP_MIN_WIDTH, maxWidth: 1600, minHeight: 320, maxHeight: 2200,
     showCover: true,
     maxShadowOpacity: 0.42,
     flippingTime: reduceMotion ? 120 : 850,
@@ -712,9 +734,102 @@ function buildFlip(){
   });
 }
 
+/* ============================================================
+   PHONE SWIPE
+   The engine's own touch handling is no use here: almost every page is
+   covered by a video, carousel or hotspot, and those either stop the event
+   (guard()) or are an <a>/<button>, which the engine skips on purpose. So on
+   phones we listen in the capture phase — ahead of every widget — and drive
+   the same fold the engine uses for a corner drag, which is what makes the
+   page follow the finger instead of just cutting to the next one.
+   ============================================================ */
+function bindSwipe(){
+  const START = 12;                 // px of travel before we commit to a turn
+  const MIN_TURN = 44;              // ...and before letting go actually turns it
+  let sx = 0, sy = 0, live = false, car = null, origin = null, at = null, dir = 0;
+
+  /* Anchor the fold on the corner the turn has to come from — the engine reads
+     the direction off the point it starts from, so starting it under the
+     finger would fold backwards for any swipe begun on the left of the page.
+     From there the fold travels exactly as far as the finger does.
+
+     A backward turn starts on the spine. In single-page (portrait) mode that
+     is NOT rect.left: the engine keeps a virtual left page, so the rect begins
+     a whole page width off-screen and rect.left + 10 would run the whole fold
+     outside the visible page — the drag did nothing and the release always
+     landed short of the halfway point the engine needs to complete the turn. */
+  function cornerFor(step, clientY){
+    const r = pageFlip.getRender().getRect();
+    const box = pageFlip.getUI().getDistElement().getBoundingClientRect();
+    const spine = r.left + (pageFlip.getOrientation() === 'portrait' ? r.pageWidth : 0);
+    return {
+      x: step > 0 ? r.left + 2 * r.pageWidth - 10 : spine + 10,
+      y: Math.min(Math.max(clientY - box.top, r.top + 2), r.top + r.height - 2)
+    };
+  }
+
+  wrap.addEventListener('touchstart', e => {
+    live = false; origin = null; at = null;
+    if (!phone || !pageFlip) return;
+    e.stopPropagation();            // on phones this layer replaces the engine's own
+    if (busy || e.touches.length !== 1) { car = null; return; }
+    sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+    car = e.target.closest ? e.target.closest('.ly-carousel') : null;
+  }, true);
+
+  wrap.addEventListener('touchmove', e => {
+    if (!phone || !pageFlip) return;
+    e.stopPropagation();
+    if (e.touches.length !== 1) return;
+    const t = e.touches[0];
+    const dx = t.clientX - sx, dy = t.clientY - sy;
+
+    if (!live){
+      if (origin === false) return;                       // gesture already conceded
+      if (Math.abs(dx) < START || Math.abs(dx) < Math.abs(dy)) return;
+      const step = dx < 0 ? 1 : -1;
+      /* a carousel that still has slides in that direction owns the gesture */
+      if (car && car._canMove && car._canMove(step)){ origin = false; return; }
+      const n = PAGE_DATA.length, i = pageFlip.getCurrentPageIndex();
+      if ((step > 0 && i >= n - 1) || (step < 0 && i <= 0)){ origin = false; return; }
+      origin = cornerFor(step, sy);
+      dir = step;
+      live = true;
+      pageFlip.startUserTouch(origin);
+      /* Lock the direction while the point is still on its corner: the engine
+         reads it off whichever point reaches fold() first, and a fast flick's
+         first move can land past the middle of the page — read as a turn the
+         other way. A 6px nudge is enough to clear its 5px dead zone. */
+      pageFlip.userMove({ x: origin.x - 6 * step, y: origin.y }, true);
+    }
+    at = { x: origin.x + dx, y: origin.y + dy };
+    pageFlip.userMove(at, true);
+    if (e.cancelable) e.preventDefault();   // no rubber-banding, no stray tap
+  }, { capture: true, passive: false });
+
+  const end = e => {
+    if (!phone || !pageFlip) return;
+    e.stopPropagation();
+    if (live && at){
+      /* A backward fold starts on the spine — already past the point where the
+         engine completes the turn — so without this the tiniest drag right
+         would flip a page back. Pull it back over the spine when the swipe was
+         too short to have been meant as a turn. */
+      if (dir < 0 && at.x - origin.x < MIN_TURN){
+        at = { x: origin.x - 14, y: at.y };
+        pageFlip.userMove(at, true);
+      }
+      pageFlip.userStop(at, false);
+    }
+    live = false; origin = null; at = null; car = null; dir = 0;
+  };
+  wrap.addEventListener('touchend', end, true);
+  wrap.addEventListener('touchcancel', end, true);
+}
+
 function applyShift(){
   const book = $('#book');
-  if (!book || mode !== 'flip' || !pageFlip) return;
+  if (!book || !pageFlip) return;
   let px = 0;
   const parent = book.classList.contains('stf__parent')
     ? book
@@ -729,60 +844,43 @@ function applyShift(){
 }
 
 /* ============================================================
-   SCROLL MODE (phones)
-   ============================================================ */
-function buildScroll(){
-  wrap.innerHTML = '<div id="scrollView" aria-label="Brochure pages"></div>';
-  const sv = $('#scrollView');
-  const sz = MANIFEST.pageSize || { width:517, height:731 };
-  PAGE_DATA.forEach((_, i) => {
-    const p = makeSheet(i, 'sPage');
-    p.style.aspectRatio = sz.width + '/' + sz.height;
-    sv.appendChild(p);
-  });
-
-  io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (en.isIntersecting) { currentIndex = +en.target.dataset.i; refresh(); }
-    });
-  }, { root: sv, rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-  sv.querySelectorAll('.sPage').forEach(p => io.observe(p));
-
-  if (currentIndex > 0) {
-    const t = sv.children[currentIndex];
-    requestAnimationFrame(() => t && t.scrollIntoView({ behavior: 'auto', block: 'start' }));
-  }
-}
-
-/* ============================================================
    NAVIGATION / SHARED UI
    ============================================================ */
+/* disableFlipByClick makes the engine ignore any flip whose origin point is
+   not on a page corner — that is what stops a tap inside a page from turning
+   it. But flipPrev() aims at x=10 in element space, and in single-page
+   (portrait) mode the book's virtual left edge sits a whole page width
+   off-screen, so that point is nowhere near the left corner and every
+   backwards turn is silently dropped. Lift the guard for the instant of a
+   deliberate, programmatic turn; taps still cannot flip. */
+function turn(run){
+  const s = pageFlip.getSettings();
+  const guarded = s.disableFlipByClick;
+  s.disableFlipByClick = false;
+  try { run(); } finally { s.disableFlipByClick = guarded; }
+}
+
 function goto(i){
+  if (!pageFlip) return;
   i = Math.max(0, Math.min(PAGE_DATA.length - 1, i));
-  if (mode === 'flip') {
-    if (busy) { pending = () => pageFlip.flip(i); return; }
-    pageFlip.flip(i);
-  } else {
-    const t = $('#scrollView').children[i];
-    if (t) t.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-  }
+  const run = () => turn(() => pageFlip.flip(i));
+  if (busy) { pending = run; return; }
+  run();
 }
 function nav(dir){
+  if (!pageFlip) return;
   const step = dir === 'next' ? 1 : -1;
-  if (mode === 'flip') {
-    const n = PAGE_DATA.length, i = pageFlip.getCurrentPageIndex();
-    if ((step > 0 && i >= n - 1) || (step < 0 && i <= 0)) return;
-    if (busy) { pending = () => (step > 0 ? pageFlip.flipNext() : pageFlip.flipPrev()); return; }
-    step > 0 ? pageFlip.flipNext() : pageFlip.flipPrev();
-  } else {
-    goto(currentIndex + step);
-  }
+  const n = PAGE_DATA.length, i = pageFlip.getCurrentPageIndex();
+  if ((step > 0 && i >= n - 1) || (step < 0 && i <= 0)) return;
+  const run = () => turn(() => (step > 0 ? pageFlip.flipNext() : pageFlip.flipPrev()));
+  if (busy) { pending = run; return; }
+  run();
 }
 
 function refresh(){
   const n = PAGE_DATA.length, i = currentIndex;
   let label;
-  const spread = mode === 'flip' && pageFlip && pageFlip.getOrientation() !== 'portrait'
+  const spread = pageFlip && pageFlip.getOrientation() !== 'portrait'
               && i !== 0 && !(n % 2 === 0 && i === n - 1);
   if (spread) {
     const L = (i % 2 === 1) ? i : i - 1;
@@ -803,18 +901,20 @@ function refresh(){
   try { history.replaceState(null, '', '#page=' + (i + 1)); } catch (e) {}
 }
 
+/* Rebuild the book whenever we cross the phone breakpoint — the engine caches
+   its geometry at construction, so a straight resize is not enough. */
 function setMode(){
-  const m = mq.matches ? 'scroll' : 'flip';
-  if (m === mode) return;
-  if (io) { io.disconnect(); io = null; }
+  const wasPhone = phone;
+  phone = mq.matches;
+  if (pageFlip && wasPhone === phone) { fitBook(); applyShift(); return; }
+
   if (pageFlip) { try { pageFlip.destroy(); } catch (e) {} pageFlip = null; }
   busy = false; pending = null;
-  mode = m;
-  document.body.classList.toggle('scroll-mode', m === 'scroll');
-  if (m === 'flip') buildFlip(); else buildScroll();
-  hintEl.textContent = m === 'flip'
-    ? 'Drag a page corner — or use your arrow keys'
-    : 'Scroll to browse — tap the gold pins';
+  document.body.classList.toggle('phone-mode', phone);
+  buildFlip();
+  hintEl.textContent = phone
+    ? 'Swipe to turn the page'
+    : 'Drag a page corner — or use your arrow keys';
   refresh();
 }
 
@@ -851,6 +951,57 @@ const lb = $('#lightbox'), lbFrame = $('#lbFrame');
 function openLightbox(src, title){ lbFrame.src = src; $('#lbTitle').textContent = title || ''; lb.classList.add('open'); }
 function closeLightbox(){ lb.classList.remove('open'); lbFrame.src = ''; }
 
+/* ---------- fullscreen ----------
+   iPhone Safari exposes no Fullscreen API at all (only a <video> can go
+   fullscreen), and older Safari/Android only ship the webkit-prefixed one.
+   So: try the standard call, then the prefixed one, and if neither exists —
+   or the request is rejected — fall back to a faux fullscreen that hides our
+   own chrome and gives the whole viewport to the book. */
+const fsRoot = document.documentElement;
+const fsRequest = fsRoot.requestFullscreen || fsRoot.webkitRequestFullscreen;
+const fsRelease = document.exitFullscreen || document.webkitExitFullscreen;
+
+const FS_ICON = {
+  on:  'M9 4v5H4M20 9h-5V4M4 15h5v5M15 20v-5h5',
+  off: 'M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5'
+};
+
+function nativeFs(){ return !!(document.fullscreenElement || document.webkitFullscreenElement); }
+function fauxFs(){ return document.body.classList.contains('faux-fs'); }
+function isFs(){ return nativeFs() || fauxFs(); }
+
+/* the engine caches its geometry, so every viewport change has to be followed
+   by a re-fit once the browser has settled on the new size */
+function afterFsChange(){
+  syncFsBtn();
+  requestAnimationFrame(() => { fitBook(); applyShift(); });
+  setTimeout(() => { fitBook(); applyShift(); }, 350);
+}
+
+function syncFsBtn(){
+  const btn = $('#fsBtn');
+  if (!btn) return;
+  const on = isFs();
+  btn.querySelector('path').setAttribute('d', on ? FS_ICON.on : FS_ICON.off);
+  btn.setAttribute('aria-label', on ? 'Exit fullscreen' : 'Enter fullscreen');
+  btn.title = on ? 'Exit fullscreen' : 'Fullscreen';
+}
+
+function setFauxFs(on){
+  document.body.classList.toggle('faux-fs', on);
+  afterFsChange();
+}
+
+function toggleFs(){
+  if (fauxFs()) return setFauxFs(false);
+  if (nativeFs()) { try { fsRelease.call(document); } catch (e) {} return; }
+  if (!fsRequest) return setFauxFs(true);
+  try {
+    const r = fsRequest.call(fsRoot);
+    if (r && r.catch) r.catch(() => setFauxFs(true));
+  } catch (e) { setFauxFs(true); }
+}
+
 let hintTimer;
 function hint(show){
   clearTimeout(hintTimer);
@@ -867,14 +1018,15 @@ function bindControls(){
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowLeft') nav('prev');
     if (e.key === 'ArrowRight') nav('next');
-    if (e.key === 'Escape') { closeLightbox(); toggleTray(false); }
+    if (e.key === 'Escape') { closeLightbox(); toggleTray(false); if (fauxFs()) setFauxFs(false); }
   });
   $('#trayBtn').onclick = () => toggleTray();
   $('#trayClose').onclick = () => toggleTray(false);
-  $('#fsBtn').onclick = () => {
-    if (document.fullscreenElement) document.exitFullscreen();
-    else document.documentElement.requestFullscreen().catch(() => {});
-  };
+  $('#fsBtn').onclick = toggleFs;
+  $('#fsExit').onclick = toggleFs;
+  ['fullscreenchange', 'webkitfullscreenchange'].forEach(ev =>
+    document.addEventListener(ev, afterFsChange));
+  syncFsBtn();
   $('#lbClose').onclick = closeLightbox;
   lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
 }
@@ -895,11 +1047,18 @@ async function boot(){
   }
   // $('#pagesNote').textContent = PAGE_DATA.length + ' pages';
 
-  mq = matchMedia('(max-width: ' + (MANIFEST.mobileBreakpoint || 767) + 'px)');
+  /* second clause catches phones held in landscape, where the width is wide
+     but the height is far too short for a readable two-page spread */
+  mq = matchMedia('(max-width: ' + (MANIFEST.mobileBreakpoint || 767) + 'px), '
+                + '(max-height: 520px) and (pointer: coarse)');
   mq.addEventListener ? mq.addEventListener('change', setMode) : mq.addListener(setMode);
-  window.addEventListener('resize', () => requestAnimationFrame(() => { fitBook(); applyShift(); }));
+  const onResize = () => requestAnimationFrame(() => { fitBook(); applyShift(); });
+  window.addEventListener('resize', onResize);
+  /* iOS reports the collapsing address bar here rather than on window */
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', onResize);
 
   bindControls();
+  bindSwipe();
   buildThumbs();
 
   const m = location.hash.match(/page=(\d+)/);

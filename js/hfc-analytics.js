@@ -37,7 +37,7 @@ const GA_MEASUREMENT_ID = 'G-KSYR113Y2N';   // ← paste yours here
     return 22;
   }
   function viewMode() {
-    return document.body.classList.contains('scroll-mode') ? 'scroll' : 'flip';
+    return document.body.classList.contains('phone-mode') ? 'flip_single' : 'flip_spread';
   }
   function ev(name, params) {
     gtag('event', name, Object.assign({ view_mode: viewMode() }, params || {}));
