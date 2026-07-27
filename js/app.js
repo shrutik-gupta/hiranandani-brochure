@@ -744,9 +744,10 @@ function buildFlip(){
    page follow the finger instead of just cutting to the next one.
    ============================================================ */
 function bindSwipe(){
-  const START = 12;                 // px of travel before we commit to a turn
-  const MIN_TURN = 44;              // ...and before letting go actually turns it
-  let sx = 0, sy = 0, live = false, car = null, origin = null, at = null, dir = 0;
+  const START = 12;                 // px of travel before we start folding
+  const MIN_TURN = 42;              // ...and before letting go actually turns it
+  const FLICK = 0.35;               // px/ms — a quick flick turns on any distance
+  let sx = 0, sy = 0, st = 0, live = false, car = null, origin = null, at = null, dir = 0;
 
   /* Anchor the fold on the corner the turn has to come from — the engine reads
      the direction off the point it starts from, so starting it under the
@@ -773,7 +774,7 @@ function bindSwipe(){
     if (!phone || !pageFlip) return;
     e.stopPropagation();            // on phones this layer replaces the engine's own
     if (busy || e.touches.length !== 1) { car = null; return; }
-    sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+    sx = e.touches[0].clientX; sy = e.touches[0].clientY; st = Date.now();
     car = e.target.closest ? e.target.closest('.ly-carousel') : null;
   }, true);
 
@@ -807,19 +808,35 @@ function bindSwipe(){
     if (e.cancelable) e.preventDefault();   // no rubber-banding, no stray tap
   }, { capture: true, passive: false });
 
+  /* Let go of the fold and see the turn through.
+
+     The engine's own release (userStop → stopMove) completes a turn only once
+     the fold has travelled past the spine — a whole page width, nearly the
+     width of the phone. Anything shorter snapped back, so a page only ever
+     turned when you dragged it the entire way across; and backwards, where the
+     fold starts *on* the spine, the opposite: the slightest drag turned it.
+
+     So decide it here — distance, or a quick flick — and then hand the fold to
+     the engine's own finishing animation from wherever the finger left it. The
+     page carries on from that point at its normal speed instead of waiting for
+     the finger to do all the work. */
+  function settle(commit){
+    pageFlip.userStop(at, true);            // release, but skip the engine's verdict
+    let fc = null, calc = null;
+    try { fc = pageFlip.getFlipController(); calc = fc.getCalculation(); } catch (err) {}
+    if (!fc || !calc) { pageFlip.userStop(at, false); return; }
+    const r = fc.getBoundsRect();
+    const y = calc.getCorner() === 'bottom' ? r.height : 0;
+    fc.animateFlippingTo(calc.getPosition(), { x: commit ? -r.pageWidth : r.pageWidth, y }, commit);
+  }
+
   const end = e => {
     if (!phone || !pageFlip) return;
     e.stopPropagation();
     if (live && at){
-      /* A backward fold starts on the spine — already past the point where the
-         engine completes the turn — so without this the tiniest drag right
-         would flip a page back. Pull it back over the spine when the swipe was
-         too short to have been meant as a turn. */
-      if (dir < 0 && at.x - origin.x < MIN_TURN){
-        at = { x: origin.x - 14, y: at.y };
-        pageFlip.userMove(at, true);
-      }
-      pageFlip.userStop(at, false);
+      const travel = (origin.x - at.x) * dir;             // px dragged towards the turn
+      const speed  = travel / Math.max(1, Date.now() - st);
+      settle(travel > MIN_TURN || (travel > START && speed > FLICK));
     }
     live = false; origin = null; at = null; car = null; dir = 0;
   };
@@ -952,14 +969,26 @@ function openLightbox(src, title){ lbFrame.src = src; $('#lbTitle').textContent 
 function closeLightbox(){ lb.classList.remove('open'); lbFrame.src = ''; }
 
 /* ---------- fullscreen ----------
-   iPhone Safari exposes no Fullscreen API at all (only a <video> can go
-   fullscreen), and older Safari/Android only ship the webkit-prefixed one.
-   So: try the standard call, then the prefixed one, and if neither exists —
-   or the request is rejected — fall back to a faux fullscreen that hides our
-   own chrome and gives the whole viewport to the book. */
+   iPhone Safari lets nothing but a <video> go fullscreen, and older
+   Safari/Android only ship the webkit-prefixed call. So: try the standard
+   call, then the prefixed one, and if neither is allowed — or the request is
+   rejected — fall back to a faux fullscreen that hides our own chrome and
+   gives the whole viewport to the book.
+
+   The catch that broke the button on iPhone: WebKit still *defines*
+   webkitRequestFullscreen on every element there, so feature-detection alone
+   says yes. The call then returns undefined (the prefixed API has no promise),
+   throws nothing, and quietly fires webkitfullscreenerror — leaving us
+   convinced we had gone fullscreen when nothing had happened at all. Hence the
+   three checks below: the *Enabled flag up front, the error event, and a
+   timeout that verifies the request actually took. */
 const fsRoot = document.documentElement;
 const fsRequest = fsRoot.requestFullscreen || fsRoot.webkitRequestFullscreen;
 const fsRelease = document.exitFullscreen || document.webkitExitFullscreen;
+const fsAllowed = !!fsRequest && (
+  'fullscreenEnabled' in document       ? !!document.fullscreenEnabled :
+  'webkitFullscreenEnabled' in document ? !!document.webkitFullscreenEnabled : false
+);
 
 const FS_ICON = {
   on:  'M9 4v5H4M20 9h-5V4M4 15h5v5M15 20v-5h5',
@@ -994,11 +1023,16 @@ function setFauxFs(on){
 
 function toggleFs(){
   if (fauxFs()) return setFauxFs(false);
-  if (nativeFs()) { try { fsRelease.call(document); } catch (e) {} return; }
-  if (!fsRequest) return setFauxFs(true);
+  if (nativeFs()) {
+    try { fsRelease ? fsRelease.call(document) : setFauxFs(false); } catch (e) { setFauxFs(false); }
+    return;
+  }
+  if (!fsAllowed) return setFauxFs(true);
   try {
     const r = fsRequest.call(fsRoot);
     if (r && r.catch) r.catch(() => setFauxFs(true));
+    /* prefixed call: no promise to reject, so confirm it by looking */
+    else setTimeout(() => { if (!isFs()) setFauxFs(true); }, 300);
   } catch (e) { setFauxFs(true); }
 }
 
@@ -1026,6 +1060,8 @@ function bindControls(){
   $('#fsExit').onclick = toggleFs;
   ['fullscreenchange', 'webkitfullscreenchange'].forEach(ev =>
     document.addEventListener(ev, afterFsChange));
+  ['fullscreenerror', 'webkitfullscreenerror'].forEach(ev =>
+    document.addEventListener(ev, () => { if (!isFs()) setFauxFs(true); }));
   syncFsBtn();
   $('#lbClose').onclick = closeLightbox;
   lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
