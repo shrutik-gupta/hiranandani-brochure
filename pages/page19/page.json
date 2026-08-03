@@ -11,12 +11,55 @@
       "style": { "size": 1.6, "color": "#6F4500", "letterSpacing": 0, "uppercase": true, "font": "page" }
     },
     {
-      "type": "html",
+      "type": "carousel",
       "x": 3,
       "y": 6,
       "w": 94,
       "h": 68,
-      "html": "<img src=\"https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19/building.png\" style=\"width:100%;height:100%;object-fit:cover;object-position:top;border-radius:6px;\" alt=\"The Arena — exterior\" />"
+      "interval": 3000,
+      "arrows": false,
+      "arrowColor": "#FFFFFF",
+      "dots": false,
+      "transition": "fade",
+      "autoplay": true,
+      "slides": [
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Arcadia+Close+up.png", "fit": "cover", "radius": "6px", "objectPosition": "top" },
+            { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Arcadia+Worm+eye.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Citadel+Day+view.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Citadel+Worm+eye.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Greenfield+Night+View.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" }
+          ]
+        },
+        {
+          "layers": [
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Greenfield+Tower.png", "fit": "cover", "radius": "6px" },
+            { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" }
+          ]
+        }
+      ]
     },
     {
       "type": "html",

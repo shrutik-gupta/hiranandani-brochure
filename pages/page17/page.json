@@ -29,7 +29,7 @@
       "slides": [
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 74, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page17/pool.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 74, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg17_updated/Pool+view.jpg", "fit": "cover", "radius": "6px" },
             { "type": "text", "x": 0, "y": 80, "w": 30, "text": "01",
               "style": { "font": "sans", "size": 6, "align": "left", "color": "#7A6145" } },
             { "type": "rule", "x": 0, "y": 88, "w": 7, "thickness": 0.18, "color": "#7A6145" },
@@ -39,7 +39,7 @@
         },
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 74, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page17/sprint.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 74, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg17_updated/New+cam+Sprint+track.png", "fit": "cover", "radius": "6px" },
             { "type": "text", "x": 0, "y": 80, "w": 30, "text": "02",
               "style": { "font": "sans", "size": 6, "align": "left", "color": "#7A6145" } },
             { "type": "rule", "x": 0, "y": 88, "w": 7, "thickness": 0.18, "color": "#7A6145" },
@@ -59,7 +59,7 @@
         },
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 74, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page17/golf.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 74, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg17_updated/Mini+golf+course.jpg", "fit": "cover", "radius": "6px" },
             { "type": "text", "x": 0, "y": 80, "w": 30, "text": "04",
               "style": { "font": "sans", "size": 6, "align": "left", "color": "#7A6145" } },
             { "type": "rule", "x": 0, "y": 88, "w": 7, "thickness": 0.18, "color": "#7A6145" },

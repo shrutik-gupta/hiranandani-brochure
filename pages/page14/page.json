@@ -30,7 +30,7 @@
       "slides": [
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page14/cricketground.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg14%2615_updated/cricket-match-with-player.jpg", "fit": "cover", "radius": "6px" },
             { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" },
             { "type": "text", "x": 37, "y": 94, "w": 60,
               "text": "Cricket Field",
@@ -39,7 +39,7 @@
         },
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page14/golf.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg14%2615_updated/Mini+golf+course.jpg", "fit": "cover", "radius": "6px" },
             { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" },
             { "type": "text", "x": 37, "y": 94, "w": 60,
               "text": "Mini Golf Course",
@@ -48,7 +48,7 @@
         },
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page14/badminton.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg14%2615_updated/Badmintion+court.jpg", "fit": "cover", "radius": "6px" },
             { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" },
             { "type": "text", "x": 37, "y": 94, "w": 60,
               "text": "Badminton Court",
@@ -57,7 +57,7 @@
         },
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page14/futsal.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg14%2615_updated/futsal+court.png", "fit": "cover", "radius": "6px" },
             { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" },
             { "type": "text", "x": 37, "y": 94, "w": 60,
               "text": "Futsal Court",
