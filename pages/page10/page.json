@@ -19,19 +19,19 @@
       "slides": [
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 52.5, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg9%2610_updated/Children%E2%80%99s+Play+Kingdom.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 52.5, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg9%2610_updated/children+play+kingdom+(untag).jpg", "fit": "cover", "radius": "6px" },
             { "type": "html", "x": 0, "y": 0, "w": 100, "h": 52.5, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 65%,rgba(0,0,0,0.55) 100%)\"></div>" },
             { "type": "text", "x": 30, "y": 49, "w": 67,
               "text": "Kids Play Area",
               "style": { "size": 2.4, "align": "right", "color": "#FFFFFF", "shadow": true } },
 
-            { "type": "image", "x": 0, "y": 54, "w": 49, "h": 45, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg9%2610_updated/Squash+Courts.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 54, "w": 49, "h": 45, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg9%2610_updated/squash+court+(untag).jpg", "fit": "cover", "radius": "6px" },
             { "type": "html", "x": 0, "y": 54, "w": 49, "h": 45, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>" },
             { "type": "text", "x": 2, "y": 95, "w": 45,
               "text": "Squash Court",
               "style": { "size": 2.4, "align": "right", "color": "#FFFFFF", "shadow": true } },
 
-            { "type": "image", "x": 50.5, "y": 54, "w": 49.5, "h": 45, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg9%2610_updated/Open+Air+Restaurant.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 50.5, "y": 54, "w": 49.5, "h": 45, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg9%2610_updated/Open+Air+Restaurant%2B1+(untag).jpg", "fit": "cover", "radius": "6px" },
             { "type": "html", "x": 50.5, "y": 54, "w": 49.5, "h": 45, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>" },
             { "type": "text", "x": 53, "y": 95, "w": 45,
               "text": "Open Air Restaurant",
@@ -46,7 +46,7 @@
               "text": "Mini Theatre",
               "style": { "size": 2.4, "align": "right", "color": "#FFFFFF", "shadow": true } },
 
-            { "type": "image", "x": 0, "y": 54, "w": 49, "h": 45, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page10/business.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 54, "w": 49, "h": 45, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg9%2610_updated/Business+Center+(untag).jpg", "fit": "cover", "radius": "6px" },
             { "type": "html", "x": 0, "y": 54, "w": 49, "h": 45, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 62%,rgba(0,0,0,0.55) 100%)\"></div>" },
             { "type": "text", "x": 2, "y": 95, "w": 45,
               "text": "Business Centre",
