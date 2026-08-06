@@ -67,8 +67,9 @@
               "y": 0,
               "w": 100,
               "h": 100,
-              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg9%2610_updated/Half+Olympic+Swimming+Pool.png",
+              "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg17_updated/Pool+view.jpg",
               "fit": "cover",
+              "position": "center bottom",
               "radius": "6px"
             },
             {

@@ -117,6 +117,7 @@ const RENDERERS = {
     img.loading = 'lazy';
     img.draggable = false;
     if (l.fit) img.style.objectFit = l.fit;
+    if (l.position || l.objectPosition) img.style.objectPosition = l.position || l.objectPosition; // ADD THIS LINE
     if (l.radius) img.style.borderRadius = l.radius;
     w.appendChild(img);
     return w;

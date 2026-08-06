@@ -26,16 +26,12 @@
     },
     {
       "type": "image",
-      "x": 3, "y": 28.5, "w": 94, "h": 60,
+      "x": 3, "y": 28.5, "w": 94, "h": 67,
       "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page12/arena_map.png",
       "fit": "cover",
+      
       "radius": "6px",
       "alt": "The Arena development plan — Hiranandani Fortune City"
-    },
-    {
-      "type": "html",
-      "x": 3, "y": 90.5, "w": 94,
-      "html": "<div style=\"font-family:var(--sans);font-size:2.3cqw;color:#000;border:1px solid #C9B79A;border-radius:6px;padding:1.1em 0;display:flex;justify-content:space-around;align-items:center\"><span>Arcadia</span><span>Citadel</span><span>Pavilion</span><span>Athletica</span><span>Greenfield</span><span>Grandstand</span></div>"
     }
   ]
 }
