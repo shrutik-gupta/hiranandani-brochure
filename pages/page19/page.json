@@ -25,37 +25,37 @@
       "slides": [
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Arcadia+Close+up.png", "fit": "cover", "radius": "6px", "objectPosition": "top" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Arcadia%2BClose%2Bup.jpg", "fit": "cover", "radius": "6px", "objectPosition": "top" },
             { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" }
           ]
         },
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Arcadia+Worm+eye.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Arcadia%2BWorm%2Beye.jpg", "fit": "cover", "radius": "6px" },
             { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" }
           ]
         },
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Citadel+Day+view.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Citadel%2BDay%2Bview.jpg", "fit": "cover", "radius": "6px" },
             { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" }
           ]
         },
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Citadel+Worm+eye.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Citadel%2BWorm%2Beye.jpg", "fit": "cover", "radius": "6px" },
             { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" }
           ]
         },
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Greenfield+Night+View.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Greenfield%2BNight%2BView.jpg", "fit": "cover", "radius": "6px" },
             { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" }
           ]
         },
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Greenfield+Tower.png", "fit": "cover", "radius": "6px" },
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page19_updated/Greenfield%2BTower.jpg", "fit": "cover", "radius": "6px" },
             { "type": "html", "x": 0, "y": 0, "w": 100, "h": 100, "html": "<div style=\"width:100%;height:100%;border-radius:6px;background:linear-gradient(180deg,rgba(0,0,0,0) 78%,rgba(0,0,0,0.5) 100%)\"></div>" }
           ]
         }

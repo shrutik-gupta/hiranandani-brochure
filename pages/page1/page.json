@@ -1,7 +1,7 @@
 {
   "title": "Cover",
   "backgroundColor": "#0B1613",
-  "background": { "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page1/bg.png", "fit": "cover" },
+  "background": { "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page1/bg.jpg", "fit": "cover" },
   "layers": [
     {
       "type": "image",

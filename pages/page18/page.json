@@ -20,22 +20,22 @@
       "slides": [
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg18_updated/Leisure+garden.jpg", "fit": "cover", "radius": "6px" }
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg18_updated/Leisure%2Bgarden.jpg", "fit": "cover", "radius": "6px" }
           ]
         },
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg18_updated/Pool+view.jpg", "fit": "cover", "radius": "6px" }
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg18_updated/Pool%2Bview.jpg", "fit": "cover", "radius": "6px" }
           ]
         },
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg18_updated/Wellness+and+therapy+garden.png", "fit": "cover", "radius": "6px" }
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg18_updated/Wellness%2Band%2Btherapy%2Bgarden.jpg", "fit": "cover", "radius": "6px" }
           ]
         },
         {
           "layers": [
-            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg18_updated/Pool+view+1.png", "fit": "cover", "radius": "6px" }
+            { "type": "image", "x": 0, "y": 0, "w": 100, "h": 100, "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg18_updated/Pool%2Bview%2B1.jpg", "fit": "cover", "radius": "6px" }
           ]
         }
       ]
@@ -43,7 +43,7 @@
     {
       "type": "image",
       "x": 3, "y": 55.5, "w": 45, "h": 41,
-      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg18_updated/Play+and+learning+garden.png",
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/pg18_updated/Play%2Band%2Blearning%2Bgarden.jpg",
       "fit": "cover",
       "radius": "6px",
       "alt": "Leisure spaces"

@@ -22,7 +22,7 @@
       "type": "video",
       "mode": "inline",
       "x": 3, "y": 23, "w": 94, "h": 68,
-      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page8/video.mp4",
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page8/Video.mp4",
       "poster": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page8/thumbnail.png",
       "autoplay": true,
       "controls": true,

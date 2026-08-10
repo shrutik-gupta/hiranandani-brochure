@@ -27,7 +27,7 @@
     {
       "type": "image",
       "x": 3, "y": 28.5, "w": 94, "h": 67,
-      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page12/arena_map.png",
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page12/arena_map.jpg",
       "fit": "cover",
       
       "radius": "6px",
