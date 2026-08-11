@@ -297,6 +297,59 @@
   .ly-img{width:100%; height:100%; object-fit:contain; display:block;}
   .ly-video{overflow:hidden; border-radius:4px;}
   .ly-video video{width:100%; height:100%; object-fit:cover; display:block; background:#000;}
+  .custom-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
+  }
+  .control-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .control-circle:active {
+    transform: scale(0.95);
+  }
+  .progress-bar {
+    flex-grow: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.4);
+    height: 6px;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    background-image: linear-gradient(#b8773d, #b8773d);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+  }
+  .progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #b8773d;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    transition: transform 0.1s;
+  }
+  .progress-bar::-webkit-slider-thumb:hover {
+    transform: scale(1.3);
+  }
   .ly-carousel{overflow:hidden; touch-action:pan-y; cursor:grab;}
   .ly-carousel:active{cursor:grabbing;}
   .car-track{display:flex; height:100%; will-change:transform;}
@@ -365,6 +418,27 @@
 </style>
 </head>
 <body>
+
+  <template id="custom-video-template">
+    <video playsinline></video>
+    <div class="custom-controls">
+      <button class="control-circle play-pause-btn">
+        <svg class="pause-icon" style="display: none;" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B1613" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+        <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B1613" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </button>
+      
+      <input type="range" class="progress-bar" min="0" max="100" value="0" step="0.1">
+      
+      <button class="control-circle mute-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B1613" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+      </button>
+      
+      <button class="control-circle fs-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B1613" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+      </button>
+    </div>
+  </template>
+
 <div id="loader" aria-hidden="true">
   <div class="lSub">Hiranandani Fortune City</div>
   <div class="lTitle">The Arena</div>

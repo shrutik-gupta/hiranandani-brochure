@@ -12,41 +12,42 @@
     },
     {
       "type": "image",
-      "x": 29,
-      "y": 7,
-      "w": 42,
+      "x": 25,
+      "y": 23,
+      "w": 50,
       "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page22/logo.png",
       "fit": "contain",
       "alt": "Hiranandani Communities"
     },
     {
-      "type": "form",
-      "x": 10,
-      "y": 22.5,
-      "w": 82,
-      "subject": "New enquiry — The Arena",
-      "fromName": "The Arena Digital Brochure",
-      "submitLabel": "Submit",
-      "fields": [
-        {
-          "name": "email",
-          "label": "Email",
-          "type": "email",
-          "required": true
-        },
-        {
-          "name": "message",
-          "label": "Message",
-          "type": "textarea",
-          "required": true,
-          "rows": 6
-        }
-      ]
+      "type": "image",
+      "x": 28,
+      "y": 42,
+      "w": 44,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page22/new_qr.png",
+      "fit": "contain",
+      "alt": "Top Row QR Codes"
+    },
+    {
+      "type": "image",
+      "x": 4,
+      "y": 52,
+      "w": 92,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page22/qr+.png",
+      "fit": "contain",
+      "alt": "MahaRERA QR codes"
+    },
+    {
+      "type": "html",
+      "x": 4,
+      "y": 62,
+      "w": 92,
+      "html": "<div style=\"font-family:var(--sans);display:flex;justify-content:space-between;text-align:center\"><div style=\"flex:1 1 0\"><div style=\"font-size:1.3cqw;letter-spacing:0.14em;color:#2B2B26\">GREENFIELD</div><div style=\"font-size:1.05cqw;color:#2B2B26;margin-top:0.35em\">MAHARERA P52000080098</div></div><div style=\"flex:1 1 0\"><div style=\"font-size:1.3cqw;letter-spacing:0.14em;color:#2B2B26\">CITADEL</div><div style=\"font-size:1.05cqw;color:#2B2B26;margin-top:0.35em\">MAHARERA P52000080155</div></div><div style=\"flex:1 1 0\"><div style=\"font-size:1.3cqw;letter-spacing:0.14em;color:#2B2B26\">ARCADIA</div><div style=\"font-size:1.05cqw;color:#2B2B26;margin-top:0.35em\">MAHARERA P52000080195</div></div><div style=\"flex:1 1 0\"><div style=\"font-size:1.3cqw;letter-spacing:0.14em;color:#2B2B26\">ATHELETICA</div><div style=\"font-size:1.05cqw;color:#2B2B26;margin-top:0.35em\">MAHARERA PR1270002501610</div></div><div style=\"flex:1 1 0\"><div style=\"font-size:1.3cqw;letter-spacing:0.14em;color:#2B2B26\">PAVILION</div><div style=\"font-size:1.05cqw;color:#2B2B26;margin-top:0.35em\">MAHARERA PR1270002501589</div></div><div style=\"flex:1 1 0\"><div style=\"font-size:1.3cqw;letter-spacing:0.14em;color:#2B2B26\">GRANDSTAND</div><div style=\"font-size:1.05cqw;color:#2B2B26;margin-top:0.35em\">MAHARERA PR1270002501603</div></div></div>"
     },
     {
       "type": "text",
       "x": 6,
-      "y": 60.6,
+      "y": 74,
       "w": 88,
       "text": "Site address: Bhokarpada, Taluka - Panvel, District - Raigad, NH - 4, Maharashtra - 410221",
       "style": {
@@ -58,7 +59,7 @@
     {
       "type": "text",
       "x": 6,
-      "y": 63.4,
+      "y": 77,
       "w": 88,
       "text": "Call : +91 22 4893 1666",
       "style": {
@@ -70,7 +71,7 @@
     {
       "type": "link",
       "x": 38,
-      "y": 63.2,
+      "y": 77,
       "w": 24,
       "h": 2.6,
       "label": "Tap to call",
@@ -79,7 +80,7 @@
     {
       "type": "text",
       "x": 6,
-      "y": 67.4,
+      "y": 81,
       "w": 88,
       "text": "Corporate office address.: Olympia, Central Avenue,\nHiranandani Business Park, Powai, Mumbai - 400076\nTel.: (+91 22) 6545 3705 / 6545 3600",
       "style": {
@@ -90,25 +91,9 @@
       }
     },
     {
-      "type": "image",
-      "x": 4,
-      "y": 76.8,
-      "w": 92,
-      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page22/qr+.png",
-      "fit": "contain",
-      "alt": "MahaRERA QR codes"
-    },
-    {
       "type": "html",
       "x": 4,
-      "y": 85.7,
-      "w": 92,
-      "html": "<div style=\"font-family:var(--sans);display:flex;justify-content:space-between;text-align:center\"><div style=\"flex:1 1 0\"><div style=\"font-size:1.3cqw;letter-spacing:0.14em;color:#2B2B26\">GREENFIELD</div><div style=\"font-size:1.05cqw;color:#2B2B26;margin-top:0.35em\">MAHARERA P52000080098</div></div><div style=\"flex:1 1 0\"><div style=\"font-size:1.3cqw;letter-spacing:0.14em;color:#2B2B26\">CITADEL</div><div style=\"font-size:1.05cqw;color:#2B2B26;margin-top:0.35em\">MAHARERA P52000080155</div></div><div style=\"flex:1 1 0\"><div style=\"font-size:1.3cqw;letter-spacing:0.14em;color:#2B2B26\">ARCADIA</div><div style=\"font-size:1.05cqw;color:#2B2B26;margin-top:0.35em\">MAHARERA P52000080195</div></div><div style=\"flex:1 1 0\"><div style=\"font-size:1.3cqw;letter-spacing:0.14em;color:#2B2B26\">ATHELETICA</div><div style=\"font-size:1.05cqw;color:#2B2B26;margin-top:0.35em\">MAHARERA PR1270002501610</div></div><div style=\"flex:1 1 0\"><div style=\"font-size:1.3cqw;letter-spacing:0.14em;color:#2B2B26\">PAVILION</div><div style=\"font-size:1.05cqw;color:#2B2B26;margin-top:0.35em\">MAHARERA PR1270002501589</div></div><div style=\"flex:1 1 0\"><div style=\"font-size:1.3cqw;letter-spacing:0.14em;color:#2B2B26\">GRANDSTAND</div><div style=\"font-size:1.05cqw;color:#2B2B26;margin-top:0.35em\">MAHARERA PR1270002501603</div></div></div>"
-    },
-    {
-      "type": "html",
-      "x": 4,
-      "y": 89.8,
+      "y": 90,
       "w": 92,
       "html": "<div style=\"font-family:var(--sans);font-size:1.25cqw;line-height:1.55;color:#2B2B26;text-align:justify\">The project has been registered via MahaRERA registration number: Greenfield: P52000080098, Citadel: P52000080155, Arcadia: P52000080195, Atheletica PR1270002501610, Pavilion PR1270002501589, Grandstand PR1270002501603 and is available on the website https://maharera.mahaonline.gov.in under registered :projects. PDPL/ developer secures a credit facility from ICICI Bank and Aditya Birla Finance Limited (collectively, \"Lenders\"), with Beacon Trusteeship Limited as Security Trustee. This facility is for the development projects at Sector B, Golden Willows (\"RZ-02\") and Sector D (\"RZ-05\"). The developer has fully repaid the previous loan managed by Axis Trustee Services Limited for Axis Bank, State Bank of India, and Punjab National Bank Housing Finance Ltd. Upon sale of individual flats in the Projects, Beacon Trusteeship Limited will issue the requisite Release of Charge (NOC) or No Objection Certificate (NOC). *T&amp;C Apply.</div>"
     }

@@ -170,38 +170,150 @@ const RENDERERS = {
   },
 
   video(l, page, o){
-    if (o.thumb){                                    // tray miniature: poster or dark slab
+    if (o.thumb){                                    
       const w = el('div','ly ly-video', box(l));
-      if (l.poster){ const p = el('img','ly-img'); p.src = asset(page, l.poster); p.style.objectFit='cover'; w.appendChild(p); }
+      if (l.poster){ const p = el('img','ly-img'); p.src = l.poster.startsWith('http') ? l.poster : asset(page, l.poster); p.style.objectFit='cover'; w.appendChild(p); }
       return w;
     }
     if (l.mode === 'lightbox'){
       const b = el('button','hs hs-play', 'left:' + l.x + '%;top:' + l.y + '%');
       b.innerHTML = '<span class="ring">' + svgIco.play + '</span><span class="chip">' + (l.label||'Play') + '</span>';
       b.setAttribute('aria-label', l.label || 'Play video');
-      b.addEventListener('click', e => { e.stopPropagation(); openLightbox(asset(page, l.src), l.label); });
+      b.addEventListener('click', e => { e.stopPropagation(); openLightbox(l.src.startsWith('http') ? l.src : asset(page, l.src), l.label); });
       guard(b);
       return b;
     }
+    
+    // --- 1. CUSTOM CONTROLS IMPLEMENTATION ---
+    // This ONLY runs if you explicitly type "customControls": true in the JSON
+    if (l.customControls) {
+        const w = el('div','ly ly-video interactive', box(l));
+        const template = document.getElementById('custom-video-template');
+        
+        if (template) {
+            const content = template.content.cloneNode(true);
+            const v = content.querySelector('video');
+            const playPauseBtn = content.querySelector('.play-pause-btn');
+            const playIcon = content.querySelector('.play-icon');
+            const pauseIcon = content.querySelector('.pause-icon');
+            const progressBar = content.querySelector('.progress-bar');
+            const muteBtn = content.querySelector('.mute-btn');
+            const fsBtn = content.querySelector('.fs-btn');
+            
+            v.style.width = '100%';
+            v.style.height = '100%';
+            v.style.objectFit = 'cover'; 
+            v.style.backgroundColor = 'transparent';
+            if (l.scale) {
+              let transformStr = `scale(${l.scale})`;
+              if (l.offsetY) transformStr += ` translateY(${l.offsetY})`; 
+              if (l.offsetX) transformStr += ` translateX(${l.offsetX})`; 
+              v.style.transform = transformStr;
+            }
+
+            v.src = l.src.startsWith('http') ? l.src : asset(page, l.src);
+            if (l.poster) v.poster = l.poster.startsWith('http') ? l.poster : asset(page, l.poster);
+            v.preload = l.autoplay ? "metadata" : "none";
+            
+            if (l.autoplay) {
+              v.muted = true;
+              if (l.loop !== false) v.loop = true;
+              if(playIcon) playIcon.style.display = 'none';
+              if(pauseIcon) pauseIcon.style.display = 'block';
+            }
+
+            if (playPauseBtn) playPauseBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              v.paused ? v.play() : v.pause();
+            });
+
+            if (progressBar) {
+                v.addEventListener('timeupdate', () => {
+                  if(v.duration) {
+                    const percentage = (v.currentTime / v.duration) * 100;
+                    progressBar.value = percentage;
+                    progressBar.style.backgroundSize = `${percentage}% 100%`;
+                  }
+                });
+                progressBar.addEventListener('input', (e) => {
+                  e.stopPropagation();
+                  const seekTime = (e.target.value / 100) * v.duration;
+                  v.currentTime = seekTime;
+                });
+                progressBar.addEventListener('mousedown', e => e.stopPropagation());
+                progressBar.addEventListener('touchstart', e => e.stopPropagation());
+            }
+
+            if (muteBtn) muteBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              v.muted = !v.muted;
+            });
+
+            if (fsBtn) fsBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              if (v.requestFullscreen) v.requestFullscreen();
+              else if (v.webkitRequestFullscreen) v.webkitRequestFullscreen();
+              else if (v.msRequestFullscreen) v.msRequestFullscreen();
+            });
+            
+            v.addEventListener('play', () => {
+              if(playIcon) playIcon.style.display = 'none';
+              if(pauseIcon) pauseIcon.style.display = 'block';
+            });
+            v.addEventListener('pause', () => {
+              if(playIcon) playIcon.style.display = 'block';
+              if(pauseIcon) pauseIcon.style.display = 'none';
+            });
+            
+            if (l.autoplay) {
+              w._onVisible = vis => {
+                if (vis) { v.play().catch(console.error); } 
+                else { v.pause(); }
+              };
+              if (typeof mediaIO !== 'undefined') mediaIO.observe(w);
+            }
+            
+            w.appendChild(content);
+            guard(w);
+            return w;
+        }
+    } 
+    
+    // --- 2. DEFAULT NATIVE VIDEO IMPLEMENTATION ---
+    // Runs for everything else (controls: false, or standard controls: true)
     const w = el('div','ly ly-video interactive', box(l));
     const v = document.createElement('video');
-    v.src = asset(page, l.src);
+
+    v.style.width = '100%';
+    v.style.height = '100%';
+    v.style.objectFit = 'cover'; 
+    v.style.backgroundColor = 'transparent';
+    if (l.scale) {
+      let transformStr = `scale(${l.scale})`;
+      if (l.offsetY) {
+        transformStr += ` translateY(${l.offsetY})`; 
+      }
+      if (l.offsetX) {
+        transformStr += ` translateX(${l.offsetX})`; 
+      }
+      v.style.transform = transformStr;
+    }
+    v.src = l.src.startsWith('http') ? l.src : asset(page, l.src);
     v.playsInline = true;
     v.preload = 'none';
-    if (l.poster) v.poster = asset(page, l.poster);
-    v.controls = l.controls === true;
+    if (l.poster) v.poster = l.poster.startsWith('http') ? l.poster : asset(page, l.poster);
+    
+    v.controls = l.controls === true; 
+    
     if (l.autoplay) {
       v.muted = true;
       v.loop = l.loop !== false;
       v.preload = "metadata";
       w._onVisible = vis => {
-        if (vis) {
-          v.play().catch(console.error);
-        } else {
-          v.pause();
-        }
+        if (vis) { v.play().catch(console.error); } 
+        else { v.pause(); }
       };
-      mediaIO.observe(w);
+      if (typeof mediaIO !== 'undefined') mediaIO.observe(w);
     }
     guard(w);
     w.appendChild(v);

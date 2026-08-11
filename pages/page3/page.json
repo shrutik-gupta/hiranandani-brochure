@@ -14,29 +14,26 @@
       "html": "<div style=\"font-family:var(--serif);text-align:center;line-height:1.08\"><div style=\"font-size:7cqw;color:#2B2B26\">Connected to</div><div style=\"font-size:7cqw\"><span style=\"color:#2B2B26\">every </span><span style=\"color:#7A6145\">Possibility</span></div></div>"
     },
     {
-      "type": "image",
-      "x": 3, "y": 21, "w": 94, "h": 67,
-      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page3/map.png",
-      "fit": "contain",
-      "radius": "4px",
-      "alt": "Connectivity map — Hiranandani Fortune City, Panvel"
+      "type": "video",
+      "mode": "inline",
+      "x": 3, "y": 21, "w": 94, "h": 63,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page3/map+video.mp4",
+      "autoplay": true,
+      "controls": false,
+      "customControls": false,
+      "loop": true,
+      "scale": 1.135,
+      "offsetY": "-5%",
+      "offsetX": "-2%"
     },
     {
-      "type": "image",
-      "x": 0, "y": 80, "w": 30, "h": 10,
-      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page3/open+in+maps+icon.png",
-      "fit": "contain",
-      "alt": "Location pin icon"
-    },
-    {
-      "type": "link",
-      "x": 3, "y": 21, "w": 94, "h": 67,
-      "href": "https://maps.app.goo.gl/cFyS1p7zm5BgDYjf6",
-      "label": "Explore the location"
+      "type": "html",
+      "x": 38, "y": 84.2, "w": 24, "h": 5,
+      "html": "<a href=\"https://maps.app.goo.gl/cFyS1p7zm5BgDYjf6\" target=\"_blank\" style=\"display:block;width:100%;height:100%;\"><img src=\"https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page3/open+in+maps+icon.png\" style=\"width:120%;height:210%;object-fit:fill;transform: translate(-10px, -15px);\" alt=\"Open in Maps\"></a>"
     },
     {
       "type": "text",
-      "x": 12, "y": 90, "w": 76,
+      "x": 12, "y": 90.5, "w": 76,
       "text": "At the centre of Mumbai's most transformative\ninfrastructure corridor.",
       "style": { "font": "sans", "size": 2.9, "align": "center", "color": "#2B2B26", "lineHeight": 1.4 }
     }
