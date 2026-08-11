@@ -723,7 +723,11 @@ function buildFlip(){
   pageFlip.on('changeState', e => {
     busy = e.data !== 'read';
     if (busy) pauseInlineMedia();
-    if (!busy && pending) { const run = pending; pending = null; run(); }
+    if (!busy && pending) { 
+      const run = pending; 
+      pending = null; 
+      setTimeout(run, 10); 
+    }
   });
 
   if (currentIndex > 0) pageFlip.turnToPage(currentIndex);
@@ -880,19 +884,25 @@ function turn(run){
 
 function goto(i){
   if (!pageFlip) return;
+  if (busy) { 
+    pending = () => goto(i); 
+    return; 
+  }
   i = Math.max(0, Math.min(PAGE_DATA.length - 1, i));
-  const run = () => turn(() => pageFlip.flip(i));
-  if (busy) { pending = run; return; }
-  run();
+  turn(() => pageFlip.flip(i));
 }
+
 function nav(dir){
   if (!pageFlip) return;
+  if (busy) { 
+    pending = () => nav(dir); 
+    return; 
+  }
   const step = dir === 'next' ? 1 : -1;
   const n = PAGE_DATA.length, i = pageFlip.getCurrentPageIndex();
   if ((step > 0 && i >= n - 1) || (step < 0 && i <= 0)) return;
-  const run = () => turn(() => (step > 0 ? pageFlip.flipNext() : pageFlip.flipPrev()));
-  if (busy) { pending = run; return; }
-  run();
+  
+  turn(() => (step > 0 ? pageFlip.flipNext() : pageFlip.flipPrev()));
 }
 
 function refresh(){
