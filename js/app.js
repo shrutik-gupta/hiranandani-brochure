@@ -198,6 +198,8 @@ const RENDERERS = {
             const pauseIcon = content.querySelector('.pause-icon');
             const progressBar = content.querySelector('.progress-bar');
             const muteBtn = content.querySelector('.mute-btn');
+            const muteIcon = content.querySelector('.mute-icon');     
+            const unmuteIcon = content.querySelector('.unmute-icon');
             const fsBtn = content.querySelector('.fs-btn');
             
             v.style.width = '100%';
@@ -220,6 +222,9 @@ const RENDERERS = {
               if (l.loop !== false) v.loop = true;
               if(playIcon) playIcon.style.display = 'none';
               if(pauseIcon) pauseIcon.style.display = 'block';
+
+              if(unmuteIcon) unmuteIcon.style.display = 'none';
+              if(muteIcon) muteIcon.style.display = 'block';
             }
 
             if (playPauseBtn) playPauseBtn.addEventListener('click', (e) => {
@@ -263,6 +268,15 @@ const RENDERERS = {
             v.addEventListener('pause', () => {
               if(playIcon) playIcon.style.display = 'block';
               if(pauseIcon) pauseIcon.style.display = 'none';
+            });
+            v.addEventListener('volumechange', () => {
+              if (v.muted) {
+                if (unmuteIcon) unmuteIcon.style.display = 'none';
+                if (muteIcon) muteIcon.style.display = 'block';
+              } else {
+                if (muteIcon) muteIcon.style.display = 'none';
+                if (unmuteIcon) unmuteIcon.style.display = 'block';
+              }
             });
             
             if (l.autoplay) {
