@@ -5,7 +5,6 @@
 <link rel="preconnect" href="https://api.web3forms.com">
 <link rel="preconnect" href="https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com">
 
-<link rel="preload" as="image" href="https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page1/bg.jpg">
 <link rel="preload" href="fonts/CanelaDeck.otf" as="font" type="font/otf" crossorigin>
 <link rel="preload" href="fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="fonts/Roboto-Light.ttf" as="font" type="font/ttf" crossorigin>
@@ -485,7 +484,12 @@
     <button class="btn icon navArrow prev" id="prevArrow" aria-label="Previous page">
       <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
     </button>
-    <div id="bookWrap"></div>
+    <div id="bookWrap">
+      <img id="coverBoot" src="pages/page1/bg.jpg" alt=""
+           width="517" height="731" fetchpriority="high" decoding="async"
+           style="height:100%;width:auto;max-width:100%;object-fit:contain;
+                  filter:drop-shadow(0 26px 40px rgba(0,0,0,.5))">
+    </div>
     <button class="btn icon" id="fsExit" aria-label="Exit fullscreen" title="Exit fullscreen">
       <svg viewBox="0 0 24 24"><path d="M9 4v5H4M20 9h-5V4M4 15h5v5M15 20v-5h5"/></svg>
     </button>
