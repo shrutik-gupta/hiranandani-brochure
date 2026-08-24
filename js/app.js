@@ -37,21 +37,30 @@ const svgIco = {
    CONTENT LOADING
    ============================================================ */
 async function fetchJSON(url){
-  const r = await fetch(url, { cache:'no-cache' });
+  const r = await fetch(url);
   if (!r.ok) throw new Error(url + ' → HTTP ' + r.status);
   return r.json();
 }
 
 async function loadContent(){
   MANIFEST = await fetchJSON('manifest.json');
-  PAGE_DATA = await Promise.all(
-    MANIFEST.pages.map(async id => {
-      const data = await fetchJSON('pages/' + id + '/page.json');
-      data.id = id;
-      data.base = 'pages/' + id + '/';
-      return data;
-    })
-  );
+  
+  if (typeof MANIFEST.pages[0] === 'string') {
+    PAGE_DATA = await Promise.all(
+      MANIFEST.pages.map(async id => {
+        const data = await fetchJSON('pages/' + id + '/page.json');
+        data.id = id;
+        data.base = 'pages/' + id + '/';
+        return data;
+      })
+    );
+  } else {
+    PAGE_DATA = MANIFEST.pages.map(pageData => {
+      pageData.base = 'pages/' + pageData.id + '/';
+      return pageData;
+    });
+  }
+  
   CONTACT_PAGE = MANIFEST.contactPage || PAGE_DATA.length;
 }
 
@@ -114,13 +123,26 @@ const RENDERERS = {
     const img = el('img','ly-img');
     img.src = asset(page, l.src);
     img.alt = l.alt || '';
-    img.loading = 'lazy';
+
+    const sz = MANIFEST.pageSize || { width: 517, height: 731 };
+    img.width = l.imgWidth || sz.width;
+    img.height = l.imgHeight || sz.height;
+
+    if (PAGE_DATA.length > 0 && page === PAGE_DATA[0]) {
+      img.loading = 'eager'; 
+      img.fetchPriority = 'high';
+    } else {
+      img.loading = 'lazy';
+      img.fetchPriority = 'auto';
+    }
+
     img.draggable = false;
     if (l.fit) img.style.objectFit = l.fit;
-    if (l.position || l.objectPosition) img.style.objectPosition = l.position || l.objectPosition; // ADD THIS LINE
+    if (l.position || l.objectPosition) img.style.objectPosition = l.position || l.objectPosition;
     if (l.radius) img.style.borderRadius = l.radius;
     w.appendChild(img);
     return w;
+
   },
 
   text(l, page, o){
@@ -733,32 +755,47 @@ const RENDERERS = {
 /* ============================================================
    PAGE BUILDER — used for full sheets AND live tray miniatures
    ============================================================ */
-function buildCanvas(data, opts){
-  opts = opts || {};
-  const canvas = el('div','pg-canvas' + (opts.thumb ? ' thumbMode' : ''));
-  canvas.setAttribute('aria-label', data.title || data.id);
-
-  if (data.background){
-    const bg = el('img','pg-bg');
-    bg.src = asset(data, data.background.src);
-    bg.alt = ''; bg.draggable = false; bg.loading = 'lazy';
-    if (data.background.fit) bg.style.objectFit = data.background.fit;
-    canvas.appendChild(bg);
-  }
-  if (data.backgroundColor) canvas.style.background = data.backgroundColor;
-
-  (data.layers || []).forEach(l => {
-    try {
-      const r = RENDERERS[l.type];
-      if (!r){ console.warn('Unknown layer type "' + l.type + '" on page', data.id); return; }
-      const node = r(l, data, opts);
-      if (node) canvas.appendChild(node);
-    } catch (err) {
-      console.error('Layer failed on page', data.id, '→ type:', l && l.type, err);
+   function buildCanvas(data, opts){
+    opts = opts || {};
+    const canvas = el('div','pg-canvas' + (opts.thumb ? ' thumbMode' : ''));
+    canvas.setAttribute('aria-label', data.title || data.id);
+  
+    if (data.background){
+      const bg = el('img','pg-bg');
+      bg.src = asset(data, data.background.src);
+      bg.alt = ''; 
+      bg.draggable = false; 
+      
+      const sz = MANIFEST.pageSize || { width: 517, height: 731 };
+      bg.width = sz.width;
+      bg.height = sz.height;
+  
+      if (PAGE_DATA.length > 0 && data === PAGE_DATA[0]) {
+        bg.loading = 'eager';
+        bg.fetchPriority = 'high';
+      } else {
+        bg.loading = 'lazy';
+        bg.fetchPriority = 'auto';
+      }
+  
+      if (data.background.fit) bg.style.objectFit = data.background.fit;
+      canvas.appendChild(bg);
     }
-  });
-  return canvas;
-}
+    
+    if (data.backgroundColor) canvas.style.background = data.backgroundColor;
+  
+    (data.layers || []).forEach(l => {
+      try {
+        const r = RENDERERS[l.type];
+        if (!r){ console.warn('Unknown layer type "' + l.type + '" on page', data.id); return; }
+        const node = r(l, data, opts);
+        if (node) canvas.appendChild(node);
+      } catch (err) {
+        console.error('Layer failed on page', data.id, '→ type:', l && l.type, err);
+      }
+    });
+    return canvas;
+  }
 
 function makeSheet(i, cls){
   const data = PAGE_DATA[i];
@@ -767,8 +804,32 @@ function makeSheet(i, cls){
   pg.className = cls + (hard && cls === 'sheet' ? ' --hard' : '');
   if (cls === 'sheet') pg.setAttribute('data-density', hard ? 'hard' : 'soft');
   pg.dataset.i = i;
-  pg.appendChild(buildCanvas(data));
+
+  if (i < 4) {
+    pg.appendChild(buildCanvas(data));
+    pg.dataset.rendered = "true";
+  } else {
+    pg.dataset.rendered = "false";
+  }
+
   return pg;
+}
+
+function renderNearbyPages(centerIndex) {
+  const bookEl = $('#book');
+  if (!bookEl) return;
+  
+  const start = Math.max(0, centerIndex - 3);
+  const end = Math.min(PAGE_DATA.length - 1, centerIndex + 3);
+  
+  for (let i = start; i <= end; i++) {
+    const sheet = bookEl.querySelector(`.sheet[data-i="${i}"]`);
+    
+    if (sheet && sheet.dataset.rendered === "false") {
+      sheet.appendChild(buildCanvas(PAGE_DATA[i]));
+      sheet.dataset.rendered = "true";
+    }
+  }
 }
 
 function pauseInlineMedia(){
@@ -820,8 +881,6 @@ function buildFlip(){
   const bookEl = $('#book');
   PAGE_DATA.forEach((_, i) => bookEl.appendChild(makeSheet(i, 'sheet')));
 
-  /* size the element before the engine reads it, so phones never flash a
-     two-page spread before fitBook() narrows it down */
   bookEl.style.width = bookWidth() + 'px';
   bookEl.style.margin = '0 auto';
 
@@ -838,13 +897,18 @@ function buildFlip(){
     clickEventForward: true,
     showPageCorners: false,
     swipeDistance: 30,
-    /* pages are interactive (carousels, videos): a click inside the page
-       must NOT turn it. Only corner-drag / swipe / arrows / keys flip. */
     disableFlipByClick: MANIFEST.flipOnClick !== true
   });
   pageFlip.loadFromHTML(bookEl.querySelectorAll('.sheet'));
 
-  pageFlip.on('flip', e => { currentIndex = e.data; refresh(); hint(false); applyShift(); });
+  pageFlip.on('flip', e => { 
+    currentIndex = e.data; 
+    refresh(); 
+    hint(false); 
+    applyShift(); 
+    renderNearbyPages(currentIndex);
+  });
+
   pageFlip.on('changeOrientation', () => { fitBook(); refresh(); applyShift(); });
   pageFlip.on('changeState', e => {
     busy = e.data !== 'read';
@@ -1244,4 +1308,4 @@ async function boot(){
 }
 
 boot();
-setTimeout(() => $('#loader').classList.add('done'), 6000);
+// setTimeout(() => $('#loader').classList.add('done'), 6000);
