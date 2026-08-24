@@ -128,7 +128,7 @@ const RENDERERS = {
     img.width = l.imgWidth || sz.width;
     img.height = l.imgHeight || sz.height;
 
-    if (PAGE_DATA.length > 0 && page === PAGE_DATA[0]) {
+    if (l.priority === true) {
       img.loading = 'eager'; 
       img.fetchPriority = 'high';
     } else {
@@ -235,9 +235,11 @@ const RENDERERS = {
               v.style.transform = transformStr;
             }
 
-            v.src = l.src.startsWith('http') ? l.src : asset(page, l.src);
+            const realSrc = l.src.startsWith('http') ? l.src : asset(page, l.src);
+            let srcAttached = false;
+            const ensureSrc = () => { if (!srcAttached) { v.src = realSrc; srcAttached = true; } };
             if (l.poster) v.poster = l.poster.startsWith('http') ? l.poster : asset(page, l.poster);
-            v.preload = l.autoplay ? "metadata" : "none";
+            v.preload = 'none';
             
             if (l.autoplay) {
               v.muted = true;
@@ -251,7 +253,7 @@ const RENDERERS = {
 
             if (playPauseBtn) playPauseBtn.addEventListener('click', (e) => {
               e.stopPropagation();
-              v.paused ? v.play() : v.pause();
+              if (v.paused) { ensureSrc(); v.play(); } else { v.pause(); }
             });
 
             if (progressBar) {
@@ -301,13 +303,15 @@ const RENDERERS = {
               }
             });
             
-            if (l.autoplay) {
-              w._onVisible = vis => {
-                if (vis) { v.play().catch(console.error); } 
-                else { v.pause(); }
-              };
-              if (typeof mediaIO !== 'undefined') mediaIO.observe(w);
-            }
+            w._onVisible = vis => {
+              if (vis) {
+                ensureSrc();
+                if (l.autoplay) v.play().catch(() => {});
+              } else {
+                v.pause();
+              }
+            };
+            if (typeof mediaIO !== 'undefined') mediaIO.observe(w);
             
             w.appendChild(content);
             guard(w);
@@ -334,23 +338,29 @@ const RENDERERS = {
       }
       v.style.transform = transformStr;
     }
-    v.src = l.src.startsWith('http') ? l.src : asset(page, l.src);
+    const realSrc = l.src.startsWith('http') ? l.src : asset(page, l.src);
+    let srcAttached = false;
+    const ensureSrc = () => { if (!srcAttached) { v.src = realSrc; srcAttached = true; } };
     v.playsInline = true;
     v.preload = 'none';
     if (l.poster) v.poster = l.poster.startsWith('http') ? l.poster : asset(page, l.poster);
-    
-    v.controls = l.controls === true; 
-    
+
+    v.controls = l.controls === true;
+
     if (l.autoplay) {
       v.muted = true;
       v.loop = l.loop !== false;
-      v.preload = "metadata";
-      w._onVisible = vis => {
-        if (vis) { v.play().catch(console.error); } 
-        else { v.pause(); }
-      };
-      if (typeof mediaIO !== 'undefined') mediaIO.observe(w);
     }
+    v.addEventListener('play', ensureSrc);
+    w._onVisible = vis => {
+      if (vis) {
+        ensureSrc();
+        if (l.autoplay) v.play().catch(() => {});
+      } else {
+        v.pause();
+      }
+    };
+    if (typeof mediaIO !== 'undefined') mediaIO.observe(w);
     guard(w);
     w.appendChild(v);
     return w;
@@ -559,9 +569,7 @@ const RENDERERS = {
     }
 
     let idx = 0, timer = null, visible = false;
-    const autoplay = slideMode === 'scroller'
-        ? l.autoplay === true          
-        : l.autoplay !== false;
+    const autoplay = l.autoplay !== false;
     function paint(){
       track.style.transform = 'translateX(' + (-idx * 100) + '%)';
       if (dots) dots.querySelectorAll('i').forEach((d,k) => d.classList.toggle('on', k === idx));
@@ -823,8 +831,8 @@ function renderNearbyPages(centerIndex) {
   const bookEl = $('#book');
   if (!bookEl) return;
   
-  const start = Math.max(0, centerIndex - 3);
-  const end = Math.min(PAGE_DATA.length - 1, centerIndex + 3);
+  const start = Math.max(0, centerIndex - 2);
+  const end = Math.min(PAGE_DATA.length - 1, centerIndex + 2);
   
   for (let i = start; i <= end; i++) {
     const sheet = bookEl.querySelector(`.sheet[data-i="${i}"]`);
