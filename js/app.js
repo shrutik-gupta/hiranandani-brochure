@@ -895,7 +895,7 @@ function buildFlip(){
     minWidth: FLIP_MIN_WIDTH, maxWidth: 1600, minHeight: 320, maxHeight: 2200,
     showCover: true,
     maxShadowOpacity: 0.42,
-    flippingTime: reduceMotion ? 120 : 400,
+    flippingTime: reduceMotion ? 120 : 500,
     usePortrait: true,
     mobileScrollSupport: false,
     clickEventForward: true,
@@ -1163,8 +1163,10 @@ function buildThumbs(){
 
 /* ---------- controls / tray / lightbox / hint ---------- */
 const tray = $('#tray');
+let thumbsBuilt = false;
 function toggleTray(force){
   const open = typeof force === 'boolean' ? force : !tray.classList.contains('open');
+  if (open && !thumbsBuilt) { buildThumbs(); thumbsBuilt = true; }
   tray.classList.toggle('open', open);
   $('#trayBtn').setAttribute('aria-expanded', open);
 }
@@ -1300,7 +1302,7 @@ async function boot(){
 
   bindControls();
   bindSwipe();
-  buildThumbs();
+  
 
   const m = location.hash.match(/page=(\d+)/);
   if (m) currentIndex = Math.min(Math.max(1, +m[1]), PAGE_DATA.length) - 1;
