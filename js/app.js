@@ -759,6 +759,10 @@ const RENDERERS = {
     opts = opts || {};
     const canvas = el('div','pg-canvas' + (opts.thumb ? ' thumbMode' : ''));
     canvas.setAttribute('aria-label', data.title || data.id);
+
+    if (data.backgroundColor) {
+      canvas.style.backgroundColor = data.backgroundColor;
+    }
   
     if (data.background){
       const bg = el('img','pg-bg');
@@ -891,7 +895,7 @@ function buildFlip(){
     minWidth: FLIP_MIN_WIDTH, maxWidth: 1600, minHeight: 320, maxHeight: 2200,
     showCover: true,
     maxShadowOpacity: 0.42,
-    flippingTime: reduceMotion ? 120 : 850,
+    flippingTime: reduceMotion ? 120 : 400,
     usePortrait: true,
     mobileScrollSupport: false,
     clickEventForward: true,
