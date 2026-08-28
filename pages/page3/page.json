@@ -10,32 +10,51 @@
     },
     {
       "type": "html",
-      "x": 0, "y": 7.5, "w": 100,
-      "html": "<div style=\"font-family:var(--serif);text-align:center;line-height:1.08\"><div style=\"font-size:7cqw;color:#2B2B26\">Connected to</div><div style=\"font-size:7cqw\"><span style=\"color:#2B2B26\">every </span><span style=\"color:#7A6145\">Possibility</span></div></div>"
+      "x": 0, "y": 17.2, "w": 100,
+      "html": "<div style=\"font-family:var(--serif);text-align:center;line-height:1.12\"><div style=\"font-size:8cqw;color:#2B2B26\">Connected to</div><div style=\"font-size:8cqw\"><span style=\"color:#2B2B26\">every </span><span style=\"color:#7A6145\">Possibility</span></div></div>"
+    },
+    {
+      "type": "html",
+      "x": 3.8, "y": 32.2, "w": 92.4, "h": 35.6,
+      "html": "<div style=\"width:100%;height:100%;background:#FFFFFF;border-radius:10px;\"></div>"
     },
     {
       "type": "video",
       "mode": "inline",
-      "x": 3, "y": 21, "w": 94, "h": 63,
-      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page3/map+video.mp4",
+      "x": 3.8, "y": 32.2, "w": 92.4, "h": 35.6,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page3/page3_map.mp4",
       "autoplay": true,
       "controls": false,
       "customControls": false,
       "loop": true,
-      "scale": 1.135,
-      "offsetY": "-5%",
-      "offsetX": "-2%"
+      "muted": true,
+      "playsInline": true,
+      "objectFit": "cover",
+      "borderRadius": 10,
+      "scale": 1,
+      "offsetX": "0%",
+      "offsetY": "0%"
     },
     {
       "type": "html",
-      "x": 38, "y": 84.2, "w": 24, "h": 5,
-      "html": "<a href=\"https://maps.app.goo.gl/cFyS1p7zm5BgDYjf6\" target=\"_blank\" style=\"display:block;width:100%;height:100%;\"><img src=\"https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page3/open+in+maps+icon.png\" style=\"width:120%;height:210%;object-fit:fill;transform: translate(-10px, -15px);\" alt=\"Open in Maps\"></a>"
+      "x": 3.8, "y": 32.2, "w": 92.4, "h": 35.6,
+      "html": "<a href=\"https://maps.app.goo.gl/cFyS1p7zm5BgDYjf6\" target=\"_blank\" rel=\"noopener\" aria-label=\"Open location in Google Maps\" style=\"display:block;width:100%;height:100%;border-radius:10px;cursor:pointer;background:transparent;-webkit-tap-highlight-color:transparent;\"></a>"
+    },
+    {
+      "type": "html",
+      "x": 15, "y": 72.4, "w": 70, "h": 0.4,
+      "html": "<div style=\"width:100%;height:1px;background:#C4763A;\"></div>"
     },
     {
       "type": "text",
-      "x": 12, "y": 90.5, "w": 76,
+      "x": 12, "y": 75, "w": 76,
       "text": "At the centre of Mumbai's most transformative\ninfrastructure corridor.",
       "style": { "font": "sans", "size": 2.9, "align": "center", "color": "#2B2B26", "lineHeight": 1.4 }
+    },
+    {
+      "type": "html",
+      "x": 38, "y": 82, "w": 24, "h": 5,
+      "html": "<a href=\"https://maps.app.goo.gl/cFyS1p7zm5BgDYjf6\" target=\"_blank\" style=\"display:block;width:100%;height:100%;\"><img src=\"https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page3/open+in+maps+icon.png\" style=\"width:120%;height:210%;object-fit:fill;transform: translate(-10px, -15px);\" alt=\"Open in Maps\"></a>"
     }
   ]
 }
