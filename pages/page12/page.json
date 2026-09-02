@@ -27,9 +27,9 @@
     {
       "type": "image",
       "x": 3, "y": 28.5, "w": 94, "h": 67,
-      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page12/arena_map.jpg",
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page12/arena_map_new.jpg",
       "fit": "cover",
-      
+      "objectPosition": "10% 50%",
       "radius": "6px",
       "alt": "The Arena development plan — Hiranandani Fortune City"
     }

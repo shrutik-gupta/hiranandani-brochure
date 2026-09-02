@@ -21,12 +21,21 @@
     },
     {
       "type": "image",
-      "x": 28,
-      "y": 42,
-      "w": 44,
-      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page22/new_qr.png",
+      "x": 43.5,
+      "y": 38,
+      "w": 13,
+      "imgWidth": 1000,
+      "imgHeight": 1000,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page22/stadia_qr.png",
       "fit": "contain",
-      "alt": "Top Row QR Codes"
+      "alt": "Project QR code"
+    },
+    {
+      "type": "html",
+      "x": 4,
+      "y": 47.6,
+      "w": 92,
+      "html": "<div style=\"font-family:var(--sans);text-align:center\"><div style=\"font-size:1.3cqw;letter-spacing:0.14em;color:#2B2B26\">STADIA</div><div style=\"font-size:1.05cqw;color:#2B2B26;margin-top:0.35em\">MAHARERA PR1270002502090</div></div>"
     },
     {
       "type": "image",
