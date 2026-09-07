@@ -280,9 +280,17 @@ const RENDERERS = {
 
             if (fsBtn) fsBtn.addEventListener('click', (e) => {
               e.stopPropagation();
-              if (v.requestFullscreen) v.requestFullscreen();
-              else if (v.webkitRequestFullscreen) v.webkitRequestFullscreen();
-              else if (v.msRequestFullscreen) v.msRequestFullscreen();
+              const noElementFs = !(document.fullscreenEnabled || document.webkitFullscreenEnabled);
+              if (noElementFs && typeof v.webkitEnterFullscreen === 'function') {
+                const enter = () => { try { v.webkitEnterFullscreen(); } catch (err) { console.warn('[video fs]', err); } };
+                if (v.readyState >= 1) return enter();          // HAVE_METADATA
+                ensureSrc();
+                v.addEventListener('loadedmetadata', enter, { once: true });
+                v.play().catch(() => {});
+                return;
+              }
+              const req = v.requestFullscreen || v.webkitRequestFullscreen || v.msRequestFullscreen;
+              if (req) { const r = req.call(v); if (r && r.catch) r.catch(() => {}); }
             });
             
             v.addEventListener('play', () => {
