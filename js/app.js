@@ -201,6 +201,8 @@ const RENDERERS = {
       const b = el('button','hs hs-play', 'left:' + l.x + '%;top:' + l.y + '%');
       b.innerHTML = '<span class="ring">' + svgIco.play + '</span><span class="chip">' + (l.label||'Play') + '</span>';
       b.setAttribute('aria-label', l.label || 'Play video');
+      b.id = 'video-play-btn-' + page.id;
+      b.setAttribute('data-track', 'Play Video - ' + (l.label || page.id));
       b.addEventListener('click', e => { e.stopPropagation(); openLightbox(l.src.startsWith('http') ? l.src : asset(page, l.src), l.label); });
       guard(b);
       return b;
@@ -223,6 +225,19 @@ const RENDERERS = {
             const muteIcon = content.querySelector('.mute-icon');     
             const unmuteIcon = content.querySelector('.unmute-icon');
             const fsBtn = content.querySelector('.fs-btn');
+
+            if (playPauseBtn) { 
+              playPauseBtn.id = 'video-playpause-' + page.id; 
+              playPauseBtn.setAttribute('data-track', 'Video Play/Pause - ' + page.id); 
+            }
+            if (muteBtn) { 
+              muteBtn.id = 'video-mute-' + page.id; 
+              muteBtn.setAttribute('data-track', 'Video Mute - ' + page.id); 
+            }
+            if (fsBtn) { 
+              fsBtn.id = 'video-fs-' + page.id; 
+              fsBtn.setAttribute('data-track', 'Video Fullscreen - ' + page.id); 
+            }
             
             v.style.width = '100%';
             v.style.height = '100%';
@@ -608,6 +623,8 @@ const RENDERERS = {
         const b = el('button','car-btn ' + dir);
         b.innerHTML = ico;
         b.setAttribute('aria-label', dir === 'prev' ? 'Previous image' : 'Next image');
+        b.id = 'carousel-btn-' + page.id + '-' + dir;
+        b.setAttribute('data-track', 'Carousel ' + dir + ' - ' + page.id);
         b.addEventListener('click', e => { e.stopPropagation(); go(idx + (dir === 'next' ? 1 : -1), true); });
         guard(b);
         w.appendChild(b);
@@ -770,6 +787,8 @@ const RENDERERS = {
     a.innerHTML = (l.w ? '' : '<span class="dot">' + svgIco.pin + '</span>')
                 + '<span class="chip">' + (l.label||'') + '</span>';
     a.setAttribute('aria-label', l.label || 'Open link');
+    a.id = 'link-' + page.id + '-' + (l.label || 'unnamed').replace(/\s+/g, '-').toLowerCase();
+    a.setAttribute('data-track', 'Link - ' + (l.label || 'unnamed'));
     a.addEventListener('click', e => e.stopPropagation());
     return a;
   }
@@ -1173,6 +1192,8 @@ function buildThumbs(){
   PAGE_DATA.forEach((p, i) => {
     const b = document.createElement('button');
     b.className = 'th'; b.setAttribute('aria-label', 'Go to page ' + (i + 1));
+    b.id = 'tray-thumb-page-' + (i + 1);
+    b.setAttribute('data-track', 'Tray Thumbnail Page ' + (i + 1));
     const mini = el('div','mini');
     mini.style.aspectRatio = sz.width + '/' + sz.height;
     mini.appendChild(buildCanvas(p, { thumb:true }));

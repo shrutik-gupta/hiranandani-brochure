@@ -497,7 +497,7 @@
 
   <main id="stage">
     <div id="glow" aria-hidden="true"></div>
-    <button class="btn icon navArrow prev" id="prevArrow" aria-label="Previous page">
+    <button class="btn icon navArrow prev" id="prevArrow" data-track="Stage Previous Arrow" aria-label="Previous page">
       <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
     </button>
     <div id="bookWrap">
@@ -506,28 +506,28 @@
            style="height:100%;width:auto;max-width:100%;object-fit:contain;
                   filter:drop-shadow(0 26px 40px rgba(0,0,0,.5))">
     </div>
-    <button class="btn icon" id="fsExit" aria-label="Exit fullscreen" title="Exit fullscreen">
+    <button class="btn icon" id="fsExit" data-track="Exit Fullscreen" aria-label="Exit fullscreen" title="Exit fullscreen">
       <svg viewBox="0 0 24 24"><path d="M9 4v5H4M20 9h-5V4M4 15h5v5M15 20v-5h5"/></svg>
     </button>
-    <button class="btn icon navArrow next" id="nextArrow" aria-label="Next page">
+    <button class="btn icon navArrow next" id="nextArrow" data-track="Stage Next Arrow" aria-label="Next page">
       <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
     </button>
     <div id="hint" role="status"></div>
   </main>
 
   <footer class="bar bottom">
-    <button class="btn" id="trayBtn" aria-expanded="false" aria-controls="tray">
+    <button class="btn" id="trayBtn" data-track="Open Page Tray" aria-expanded="false" aria-controls="tray">
       <svg viewBox="0 0 24 24"><rect x="3" y="5" width="7" height="14" rx="1"/><rect x="14" y="5" width="7" height="14" rx="1"/></svg>
       <span class="lbl">Pages</span>
     </button>
-    <button class="btn icon" id="prevBtn" aria-label="Previous page">
+    <button class="btn icon" id="prevBtn" data-track="Footer Previous Button" aria-label="Previous page">
       <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
     </button>
     <div id="indicator" style="font-size: small;" aria-live="polite">1<small>page</small></div>
-    <button class="btn icon" id="nextBtn" aria-label="Next page">
+    <button class="btn icon" id="nextBtn" data-track="Footer Next Button" aria-label="Next page">
       <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
     </button>
-    <button class="btn cta" id="enquireBtn">
+    <button class="btn cta" id="enquireBtn" data-track="Enquire Footer Button">
       <span class="lbl">Enquire</span>
       <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg>
     </button>
@@ -535,7 +535,7 @@
 
   <section id="tray" aria-label="Page thumbnails">
     <div class="trayHead"><span>All pages</span><div class="spacer"></div>
-      <button class="btn icon" id="trayClose" aria-label="Close thumbnails"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <button class="btn icon" id="trayClose" data-track="Close Page Tray" aria-label="Close thumbnails"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <div id="thumbRow"></div>
   </section>
@@ -544,7 +544,7 @@
 <div id="lightbox" role="dialog" aria-modal="true" aria-label="Video player">
   <div class="frame">
     <span class="lbTitle" id="lbTitle"></span>
-    <button class="btn icon" id="lbClose" aria-label="Close video"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <button class="btn icon" id="lbClose" data-track="Close Lightbox" aria-label="Close video"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <iframe id="lbFrame" title="Brochure video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
