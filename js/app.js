@@ -280,19 +280,18 @@ const RENDERERS = {
 
             if (fsBtn) fsBtn.addEventListener('click', (e) => {
               e.stopPropagation();
-              alert('fs tap: readyState=' + v.readyState
-                + ' enter=' + typeof v.webkitEnterFullscreen
-                + ' supports=' + v.webkitSupportsFullscreen
-                + ' fsEnabled=' + document.fullscreenEnabled);
             
               const enter = () => {
                 try {
-                  if (typeof v.webkitEnterFullscreen === 'function') { v.webkitEnterFullscreen(); alert('entered'); return; }
+                  if (typeof v.webkitEnterFullscreen === 'function') {
+                    v.webkitEnterFullscreen(); // Removed alert('entered')
+                    return;
+                  }
                   const req = v.requestFullscreen || v.webkitRequestFullscreen;
-                  if (!req) return alert('no fullscreen API');
+                  if (!req) return;
                   const r = req.call(v);
-                  if (r && r.catch) r.catch(err => alert('request failed: ' + err.name + ' ' + err.message));
-                } catch (err) { alert('enter threw: ' + err.name + ' ' + err.message); }
+                  if (r && r.catch) r.catch(err => console.error('request failed:', err));
+                } catch (err) { console.error('enter threw:', err); }
               };
             
               if (v.readyState >= 1) return enter();
