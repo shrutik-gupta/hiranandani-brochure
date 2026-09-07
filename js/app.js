@@ -280,17 +280,25 @@ const RENDERERS = {
 
             if (fsBtn) fsBtn.addEventListener('click', (e) => {
               e.stopPropagation();
-              const noElementFs = !(document.fullscreenEnabled || document.webkitFullscreenEnabled);
-              if (noElementFs && typeof v.webkitEnterFullscreen === 'function') {
-                const enter = () => { try { v.webkitEnterFullscreen(); } catch (err) { console.warn('[video fs]', err); } };
-                if (v.readyState >= 1) return enter();          // HAVE_METADATA
-                ensureSrc();
-                v.addEventListener('loadedmetadata', enter, { once: true });
-                v.play().catch(() => {});
-                return;
-              }
-              const req = v.requestFullscreen || v.webkitRequestFullscreen || v.msRequestFullscreen;
-              if (req) { const r = req.call(v); if (r && r.catch) r.catch(() => {}); }
+              alert('fs tap: readyState=' + v.readyState
+                + ' enter=' + typeof v.webkitEnterFullscreen
+                + ' supports=' + v.webkitSupportsFullscreen
+                + ' fsEnabled=' + document.fullscreenEnabled);
+            
+              const enter = () => {
+                try {
+                  if (typeof v.webkitEnterFullscreen === 'function') { v.webkitEnterFullscreen(); alert('entered'); return; }
+                  const req = v.requestFullscreen || v.webkitRequestFullscreen;
+                  if (!req) return alert('no fullscreen API');
+                  const r = req.call(v);
+                  if (r && r.catch) r.catch(err => alert('request failed: ' + err.name + ' ' + err.message));
+                } catch (err) { alert('enter threw: ' + err.name + ' ' + err.message); }
+              };
+            
+              if (v.readyState >= 1) return enter();
+              ensureSrc();
+              v.addEventListener('loadedmetadata', enter, { once: true });
+              v.play().catch(err => alert('play failed: ' + err.name));
             });
             
             v.addEventListener('play', () => {
