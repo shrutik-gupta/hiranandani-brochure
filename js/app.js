@@ -284,7 +284,7 @@ const RENDERERS = {
               const enter = () => {
                 try {
                   if (typeof v.webkitEnterFullscreen === 'function') {
-                    v.webkitEnterFullscreen(); // Removed alert('entered')
+                    v.webkitEnterFullscreen();
                     return;
                   }
                   const req = v.requestFullscreen || v.webkitRequestFullscreen;

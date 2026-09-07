@@ -3,6 +3,16 @@
   "backgroundColor": "#F4EFE4",
   "layers": [
     {
+      "type": "image",
+      "x": 6,
+      "y": 12,
+      "w": 92,
+      "h": 45,
+      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page13/new_map.jpg",
+      "fit": "contain",
+      "alt": "The Arena masterplan"
+    },
+    {
       "type": "text",
       "x": 4,
       "y": 2,
@@ -51,16 +61,6 @@
       "y": 23,
       "w": 28,
       "html": "<div style=\"font-family:var(--sans);font-size:1.35cqw;color:#2B2B26;display:inline-flex;flex-direction:column;gap:0.5em\"><div style=\"font-weight:bold;font-size:1.1em;color:#6F4500;margin-bottom:0.2em\">TOWER WISE INDOOR AMENITIES</div><div style=\"font-size:0.9em;line-height:1.3;margin-bottom:0.4em\">1. Arcadia - Boxing Ring<br>2. Citadel - Bowling Alley<br>3. Pavilion - Business Center with Coffee Station<br>4. Atheletica - Library with Coffee Station<br>5. Greenfield - Mini Theatre with Pantry<br>6. Grandstand - Crossfit Gymnasium<br>7. Stadia - E-sports<br>8. Olympus - Indoor Games</div></div>"
-    },
-    {
-      "type": "image",
-      "x": 6,
-      "y": 12,
-      "w": 92,
-      "h": 45,
-      "src": "https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page13/map_new.png",
-      "fit": "contain",
-      "alt": "The Arena masterplan"
     },
     {
       "type": "html",
