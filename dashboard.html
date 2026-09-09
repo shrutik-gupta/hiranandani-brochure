@@ -86,8 +86,9 @@
         <button class="btn" type="submit" style="justify-content:center">Open report</button>
       </form>
     </div>
-    <div class="fallback">
-      … (unchanged) …
+    <div class="fallback">      
+      <h2>Loading the report…</h2>      
+      <p>If this stays on screen, you're not signed in to a Google account with access to this report. Use “Open in Looker Studio” above, sign in, then come back and refresh.</p>    
     </div>
     <iframe id="report"
       width="100%" height="100%"
@@ -103,7 +104,7 @@
 </footer>
 
 <script>
-  const PASSWORD   = 'admin';
+  const PASSWORD   = 'change-me';
   const REPORT_SRC = 'https://datastudio.google.com/embed/reporting/df0a832b-fe17-4495-aa62-d5bf5df24645/page/p_ev5o6t54bdF';
 
   function showReport(){
