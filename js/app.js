@@ -1162,7 +1162,11 @@ function refresh(){
   [$('#prevBtn'), $('#prevArrow')].forEach(b => b.setAttribute('aria-disabled', atStart));
   [$('#nextBtn'), $('#nextArrow')].forEach(b => b.setAttribute('aria-disabled', atEnd));
 
-  try { history.replaceState(null, '', '#page=' + (i + 1)); } catch (e) {}
+  try {
+    // strip "index.html" or a "page=N/" segment so we never nest page= inside page=
+    const dir = location.pathname.replace(/(index\.html|page=\d+\/?)$/, '');
+    history.replaceState(null, '', dir + 'page=' + (i + 1));
+  } catch (e) {}
 }
 
 /* Rebuild the book whenever we cross the phone breakpoint — the engine caches
@@ -1348,7 +1352,7 @@ async function boot(){
   bindSwipe();
   
 
-  const m = location.hash.match(/page=(\d+)/);
+  const m = (location.pathname + location.search + location.hash).match(/page=(\d+)/);
   if (m) currentIndex = Math.min(Math.max(1, +m[1]), PAGE_DATA.length) - 1;
   setMode();
 
