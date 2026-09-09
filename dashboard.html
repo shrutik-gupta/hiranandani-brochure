@@ -46,6 +46,16 @@
   .frame iframe{z-index:1; background:transparent;}
 
   footer{padding:12px clamp(16px,4vw,36px) 20px; color:var(--muted); font-size:11px; line-height:1.6;}
+
+  .gate{position:absolute; inset:0; z-index:2; display:flex; align-items:center; justify-content:center;
+    padding:30px; background:linear-gradient(180deg, var(--pine), var(--ink) 60%);}
+  .gate form{display:flex; flex-direction:column; gap:12px; width:min(340px,100%); text-align:center;}
+  .gate h2{font-family:var(--serif); font-weight:500; font-size:20px; margin:0 0 4px;}
+  .gate input{font:15px var(--sans); color:var(--ivory); background:rgba(22,48,38,.6);
+    border:1px solid var(--line); border-radius:8px; padding:11px 14px; outline:none; letter-spacing:.1em;}
+  .gate input:focus{border-color:var(--gold);}
+  .gate .err{color:#e08a7a; font-size:12px; min-height:16px; margin:0;}
+  .gate.hidden{display:none;}
 </style>
 </head>
 <body>
@@ -68,16 +78,21 @@
 
 <main>
   <div class="frame">
+    <div class="gate" id="gate">
+      <form id="gateForm">
+        <h2>Brochure Analytics</h2>
+        <input type="password" id="pw" placeholder="Password" autocomplete="current-password" autofocus>
+        <p class="err" id="gateErr"></p>
+        <button class="btn" type="submit" style="justify-content:center">Open report</button>
+      </form>
+    </div>
     <div class="fallback">
-      <h2>Loading the report…</h2>
-      <p>If this stays on screen, you're not signed in to a Google account with
-         access to this report. Use “Open in Looker Studio” above, sign in, then
-         come back and refresh.</p>
+      … (unchanged) …
     </div>
     <iframe id="report"
-      width="100%" height="100%" 
-      src="https://datastudio.google.com/embed/reporting/df0a832b-fe17-4495-aa62-d5bf5df24645/page/p_ev5o6t54bdF" 
-      frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+      width="100%" height="100%"
+      frameborder="0" style="border:0" allowfullscreen
+      sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
     </iframe>
   </div>
 </main>
@@ -88,8 +103,28 @@
 </footer>
 
 <script>
-  var src = document.getElementById('report').getAttribute('src') || '';
-  document.getElementById('openFull').href = src.replace('/embed/reporting/', '/reporting/');
+  const PASSWORD   = 'admin';
+  const REPORT_SRC = 'https://datastudio.google.com/embed/reporting/df0a832b-fe17-4495-aa62-d5bf5df24645/page/p_ev5o6t54bdF';
+
+  function showReport(){
+    document.getElementById('report').src = REPORT_SRC;
+    document.getElementById('openFull').href = REPORT_SRC.replace('/embed/reporting/', '/reporting/');
+    document.getElementById('gate').classList.add('hidden');
+  }
+
+  document.getElementById('gateForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const pw = document.getElementById('pw');
+    if (pw.value === PASSWORD) {
+      sessionStorage.setItem('hfc-dash', '1');   // stays unlocked on refresh, resets when the tab closes
+      showReport();
+    } else {
+      document.getElementById('gateErr').textContent = 'Incorrect password';
+      pw.select();
+    }
+  });
+
+  if (sessionStorage.getItem('hfc-dash') === '1') showReport();
 </script>
 </body>
 </html>
