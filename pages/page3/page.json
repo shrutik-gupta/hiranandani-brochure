@@ -38,7 +38,7 @@
     {
       "type": "html",
       "x": 3.8, "y": 32.2, "w": 92.4, "h": 35.6,
-      "html": "<a href=\"https://maps.app.goo.gl/cFyS1p7zm5BgDYjf6\" target=\"_blank\" rel=\"noopener\" aria-label=\"Open location in Google Maps\" style=\"display:block;width:100%;height:100%;border-radius:10px;cursor:pointer;background:transparent;-webkit-tap-highlight-color:transparent;\"></a>"
+      "html": "<a id=\"page3-map-video-link\" data-track=\"Page 3 Map Video Click\" href=\"https://maps.app.goo.gl/cFyS1p7zm5BgDYjf6\" target=\"_blank\" rel=\"noopener\" aria-label=\"Open location in Google Maps\" style=\"display:block;width:100%;height:100%;border-radius:10px;cursor:pointer;background:transparent;-webkit-tap-highlight-color:transparent;\"></a>"
     },
     {
       "type": "html",
@@ -54,7 +54,7 @@
     {
       "type": "html",
       "x": 38, "y": 82, "w": 24, "h": 5,
-      "html": "<a href=\"https://maps.app.goo.gl/cFyS1p7zm5BgDYjf6\" target=\"_blank\" style=\"display:block;width:100%;height:100%;\"><img src=\"https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page3/open+in+maps+icon.png\" style=\"width:120%;height:210%;object-fit:fill;transform: translate(-10px, -15px);\" alt=\"Open in Maps\"></a>"
+      "html": "<a id=\"page3-open-in-maps-btn\" data-track=\"Page 3 Open In Maps Button\" href=\"https://maps.app.goo.gl/cFyS1p7zm5BgDYjf6\" target=\"_blank\" style=\"display:block;width:100%;height:100%;\"><img src=\"https://video-template-bucket-20241209-cloudshell-user.s3.ap-south-1.amazonaws.com/hiranandani/page3/open+in+maps+icon.png\" style=\"width:120%;height:210%;object-fit:fill;transform: translate(-10px, -15px);\" alt=\"Open in Maps\"></a>"
     }
   ]
 }
