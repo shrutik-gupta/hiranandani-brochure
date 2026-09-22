@@ -105,13 +105,14 @@
 
 <script>
   const PASSWORD   = 'admin';
-  const REPORT_SRC = 'https://datastudio.google.com/u/0/reporting/ac5d1909-5a6f-4503-ac60-7421a96a2709/page/kIV1C';
+  const REPORT_SRC = 'https://lookerstudio.google.com/embed/reporting/ac5d1909-5a6f-4503-ac60-7421a96a2709/page/kIV1C';
 
   function showReport(){
-    document.getElementById('report').src = REPORT_SRC;
-    document.getElementById('openFull').href = REPORT_SRC.replace('/embed/reporting/', '/reporting/');
-    document.getElementById('gate').classList.add('hidden');
-  }
+  document.getElementById('report').src = REPORT_SRC;
+  // This replace function will now properly strip '/embed' for your "Open in Looker Studio" header button!
+  document.getElementById('openFull').href = REPORT_SRC.replace('/embed/reporting/', '/reporting/');
+  document.getElementById('gate').classList.add('hidden');
+}
 
   document.getElementById('gateForm').addEventListener('submit', e => {
     e.preventDefault();
